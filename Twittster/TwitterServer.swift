@@ -27,7 +27,7 @@ class TwitterServer: NSObject {
                         weakSelf?.openAuthURLWithToken(requestToken?.token)
                     }) {(error:Error?) in
                         print("FetchRequestToken: Error = \(error)")
-                        weakSelf?.loginSuccessHandler?()
+                        weakSelf?.loginFailureHandler?()
         }
     }
     
