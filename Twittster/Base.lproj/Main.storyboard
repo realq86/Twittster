@@ -22,6 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQq-Sa-4bo"/>
+                                    <segue destination="6u2-Mq-344" kind="show" identifier="SegueToHome" id="fAR-ma-fSa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -34,6 +35,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jnj-ip-JN2">
+            <objects>
+                <viewController id="6u2-Mq-344" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Ea-au-pMW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wrn-0h-Esm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sjD-bY-nWu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KkQ-WG-9Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1892" y="45"/>
         </scene>
     </scenes>
 </document>

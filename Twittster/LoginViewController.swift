@@ -31,21 +31,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLoginButton(_ sender: AnyObject) {
         
-        
-        self.setupTwitterClient()
-        
-    }
-    
-    func setupTwitterClient() {
-        
-        self.twitterClient.login(success: {
-            
-            
+        self.twitterClient.login(
+            success: {
+
+                self.performSegue(withIdentifier: "SegueToHome", sender: sender)
             
             },failure: {
         })
-        
     }
+
     
 
 }
