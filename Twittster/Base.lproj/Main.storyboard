@@ -22,7 +22,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="onLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQq-Sa-4bo"/>
-                                    <segue destination="6u2-Mq-344" kind="show" identifier="SegueToHome" id="fAR-ma-fSa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -32,14 +31,17 @@
                             <constraint firstItem="Mec-kK-iZ1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mbS-db-dgM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6u2-Mq-344" kind="show" identifier="SegueToHome" id="pvZ-zR-AEq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Jnj-ip-JN2">
             <objects>
-                <viewController id="6u2-Mq-344" sceneMemberID="viewController">
+                <viewController id="6u2-Mq-344" customClass="MainViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ea-au-pMW"/>
                         <viewControllerLayoutGuide type="bottom" id="Wrn-0h-Esm"/>
@@ -47,11 +49,35 @@
                     <view key="view" contentMode="scaleToFill" id="sjD-bY-nWu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-5V-eb7">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="8bA-qD-ZX6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bA-qD-ZX6" id="aW6-Cy-Wsf">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MrO-5V-eb7" firstAttribute="leading" secondItem="sjD-bY-nWu" secondAttribute="leading" id="2iz-4a-CqZ"/>
+                            <constraint firstItem="Wrn-0h-Esm" firstAttribute="top" secondItem="MrO-5V-eb7" secondAttribute="bottom" id="Abb-Nr-jAs"/>
+                            <constraint firstAttribute="trailing" secondItem="MrO-5V-eb7" secondAttribute="trailing" id="Cih-zm-APL"/>
+                            <constraint firstItem="MrO-5V-eb7" firstAttribute="top" secondItem="7Ea-au-pMW" secondAttribute="bottom" id="DeC-vK-TNJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="MrO-5V-eb7" id="5GT-du-hg1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkQ-WG-9Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="142"/>
+            <point key="canvasLocation" x="921" y="37"/>
         </scene>
     </scenes>
 </document>
