@@ -22,20 +22,13 @@ class TwitterServer: NSObject {
         self.loginSuccessHandler = success
         
         weak var weakSelf = self
-        manager.fetchRequestToken(withPath: kTwitterRequestTokenPath,
-                                  method: "GET",
-                                  callbackURL:kTWitterCallBackURL,
-                                  scope: nil,
-                                  success: { (requestToken:BDBOAuth1Credential?) in
-                                    print("FetchRquestToken: Success Token = \(requestToken?.token)")
-                                    weakSelf?.openAuthURLWithToken(requestToken?.token)
-                                })
-                                {(error:Error?) in
-                                    print("FetchRequestToken: Error = \(error)")
-                                    weakSelf?.loginSuccessHandler?()
+        manager.fetchRequestToken(withPath: kTwitterRequestTokenPath, method: "GET", callbackURL: kTWitterCallBackURL, scope: nil,success: { (requestToken:BDBOAuth1Credential?) in
+                        print("FetchRquestToken: Success Token = \(requestToken?.token)")
+                        weakSelf?.openAuthURLWithToken(requestToken?.token)
+                    }) {(error:Error?) in
+                        print("FetchRequestToken: Error = \(error)")
+                        weakSelf?.loginSuccessHandler?()
         }
-        
-        
     }
     
     private func openAuthURLWithToken(_ requestToken:String?) {
@@ -58,36 +51,29 @@ class TwitterServer: NSObject {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         
         weak var weakSelf = self
-        manager.fetchAccessToken(withPath: kTwitterAccessTokenPath,
-                                        method: "POST",
-                                        requestToken: requestToken,
-                                        success: { (accessToken:BDBOAuth1Credential?) in
-                                            
-                                            print("FetchAccessToken: Success Token = \(accessToken?.description)")
-                                            weakSelf?.loginSuccessHandler?()
-                                            
-                                            
-                                            
+        manager.fetchAccessToken(withPath: kTwitterAccessTokenPath, method: "POST", requestToken: requestToken,
+            success: { (accessToken:BDBOAuth1Credential?) in
+                
+                print("FetchAccessToken: Success Token = \(accessToken?.description)")
+                weakSelf?.loginSuccessHandler?()
+            
             }, failure: { (error:Error?) in
+            
                 print("FetchAccessToken Fail \(error)")
                 weakSelf?.loginFailureHandler?()
+        
         })
         
         
     }
     
     public func getCredentials() {
-        manager.get(kTwitterGETCredentials,
-                           parameters: nil,
-                           progress: nil,
-                           success: { (task:URLSessionDataTask, response:Any?) in
+        manager.get(kTwitterGETCredentials, parameters: nil, progress: nil,
+            success: { (task:URLSessionDataTask, response:Any?) in
                             
-                            
-                            print("GET Credentials: \(response)")
-                            
-            },
-                           failure: { (tast:URLSessionDataTask?, error:Error) in
-                            
+                print("GET Credentials: \(response)")
+                
+            }, failure: { (tast:URLSessionDataTask?, error:Error) in
         })
     }
     
