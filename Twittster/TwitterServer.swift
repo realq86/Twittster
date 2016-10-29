@@ -23,7 +23,7 @@ class TwitterServer: NSObject {
     public func login(success:@escaping ()->(),failure:()->()) {
         
         self.loginSuccessHandler = success
-        
+        manager.deauthorize()
         weak var weakSelf = self
         manager.fetchRequestToken(withPath: kTwitterRequestTokenPath, method: "GET", callbackURL: kTWitterCallBackURL, scope: nil,success: { (requestToken:BDBOAuth1Credential?) in
                         print("FetchRquestToken: Success Token = \(requestToken?.token)")
@@ -32,6 +32,13 @@ class TwitterServer: NSObject {
                         print("FetchRequestToken: Error = \(error)")
                         weakSelf?.loginFailureHandler?()
         }
+    }
+    
+    public func logout() {
+        TwittsterUser.currentUser = nil
+        manager.deauthorize()
+        let notificationName = Notification.Name(kUserLogoutNotificationName)
+        NotificationCenter.default.post(name:notificationName, object: self)
     }
     
     private func openAuthURLWithToken(_ requestToken:String?) {

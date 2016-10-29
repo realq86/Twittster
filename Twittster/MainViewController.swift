@@ -83,5 +83,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
      // Pass the selected object to the new view controller.
      }
      */
+    @IBAction func onLogout(_ sender: AnyObject) {
+        
+        TwitterServer.sharedInstance.logout()
+    }
     
 }

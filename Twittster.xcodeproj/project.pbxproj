@@ -60,6 +60,7 @@
 		8B6AF1861DC41289000C05CA /* TweetSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetSample.m; sourceTree = "<group>"; };
 		8B6AF1891DC41447000C05CA /* TwittsterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwittsterUser.swift; sourceTree = "<group>"; };
 		8B6AF18B1DC41592000C05CA /* TweetEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetEntities.swift; sourceTree = "<group>"; };
+		8B8684361DC46215003D1287 /* Twittster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Twittster.entitlements; sourceTree = "<group>"; };
 		8BACBF171DC2ABFC0089CB59 /* Twittster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twittster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BACBF1A1DC2ABFC0089CB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BACBF1C1DC2ABFC0089CB59 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		8BACBF191DC2ABFC0089CB59 /* Twittster */ = {
 			isa = PBXGroup;
 			children = (
+				8B8684361DC46215003D1287 /* Twittster.entitlements */,
 				8BACBF1E1DC2ABFC0089CB59 /* Main.storyboard */,
 				8B6AF1781DC2B39C000C05CA /* Constant.swift */,
 				8BACBF1A1DC2ABFC0089CB59 /* AppDelegate.swift */,
@@ -301,6 +303,11 @@
 						DevelopmentTeam = SDHBMW8ZGY;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					8BACBF2A1DC2ABFC0089CB59 = {
 						CreatedOnToolsVersion = 8.0;
@@ -656,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Twittster/Twittster.entitlements;
 				DEVELOPMENT_TEAM = SDHBMW8ZGY;
 				INFOPLIST_FILE = Twittster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,6 +681,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Twittster/Twittster.entitlements;
 				DEVELOPMENT_TEAM = SDHBMW8ZGY;
 				INFOPLIST_FILE = Twittster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

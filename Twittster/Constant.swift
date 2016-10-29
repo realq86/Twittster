@@ -31,6 +31,9 @@ func authURL(requestToken:String)->URL{
 }
 
 let kCurrentUserKeyInUserDefault = "currentUser"
+
+let kUserLogoutNotificationName = "UserDidLogout"
+
 // MARK: - Twitter API
 let kTwitterGETCredentials = "/1.1/account/verify_credentials.json"
 

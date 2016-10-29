@@ -17,6 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if TwittsterUser.currentUser != nil {
+            print("Current User Found")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let naviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
+            window?.rootViewController = naviVC
+        }
+        else {
+            print("Current User Not Found")
+        }
+        
+        weak var weakSelf = self
+        let notificationName = Notification.Name(kUserLogoutNotificationName)
+        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification:Notification) in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            weakSelf?.window?.rootViewController = vc
+        }
+        
         return true
     }
 

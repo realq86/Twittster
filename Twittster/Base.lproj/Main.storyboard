@@ -32,11 +32,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="6u2-Mq-344" kind="show" identifier="SegueToHome" id="pvZ-zR-AEq"/>
+                        <segue destination="rlP-pV-soX" kind="presentation" identifier="SegueToHome" id="tK0-Vw-puh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-148" y="125"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Jnj-ip-JN2">
@@ -54,10 +55,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="8bA-qD-ZX6">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bA-qD-ZX6" id="aW6-Cy-Wsf">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -71,13 +72,38 @@
                             <constraint firstItem="MrO-5V-eb7" firstAttribute="top" secondItem="7Ea-au-pMW" secondAttribute="bottom" id="DeC-vK-TNJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xpV-zu-gow">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hal-7U-uzH">
+                            <connections>
+                                <action selector="onLogout:" destination="6u2-Mq-344" id="OrI-iJ-A1k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MrO-5V-eb7" id="5GT-du-hg1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkQ-WG-9Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="37"/>
+            <point key="canvasLocation" x="1944.8" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kaK-jv-gV4">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationControllerID" automaticallyAdjustsScrollViewInsets="NO" id="rlP-pV-soX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iZk-xo-fzY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6u2-Mq-344" kind="relationship" relationship="rootViewController" id="ffs-k5-QaC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZZ-aN-SLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.6" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
