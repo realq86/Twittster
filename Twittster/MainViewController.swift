@@ -12,7 +12,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
 
-    var tableViewDataBackArray = [AnyObject]()
+    var tweetsArray:[Tweet]?
+    var tableViewDataBackArray = [Tweet]()
     
     let server = TwitterServer.sharedInstance
     
@@ -33,7 +34,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func callAPI(_: ()->()) {
-        server.getTimeline(success: { (response:Any) in
+        
+        server.getTimeline(success: { (response:[Tweet]) in
+            
+            self.tweetsArray = response
+            self.updateTableView()
             
         }) { (error:Error?) in
                 
@@ -41,6 +46,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func updateTableView() {
+        
+        if let tweetsArray = self.tweetsArray {
+            self.tableViewDataBackArray = tweetsArray
+        }
         self.tableView.reloadData()
     }
     
@@ -53,14 +62,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tableViewDataBackArray.count
-        return 5
+        return tableViewDataBackArray.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = "TEST"
+        cell.textLabel?.text = self.tableViewDataBackArray[indexPath.row].text
         
         return cell
     }

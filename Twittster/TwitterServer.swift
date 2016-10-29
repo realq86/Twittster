@@ -94,14 +94,14 @@ class TwitterServer: NSObject {
     
     
     // MARK: - GET Timeline
-    public func getTimeline(success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+    public func getTimeline(success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
         self.get(endPoint: kTwitterGETTimeLine,
                 success: { (response:Any) in
-                    print(response)
-                    success("GET TimeLine Response = \(response)")
+                    print("GET TimeLine Response = \(response)")
                     let responseDic = response as! [NSDictionary]
                     let tweetsArray = Tweet.initTweetsWith(array: responseDic)
                     print(tweetsArray.description)
+                    success(tweetsArray)
                 }) { (error:Error?) in
                     print("GET TimeLine Error = \(error?.localizedDescription)")
                     failure(error)
