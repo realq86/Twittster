@@ -11,7 +11,10 @@ import UIKit
 class TwittsterUser: NSObject {
 
     var userInJson:NSDictionary?
+    
     var name:NSString!
+    
+    var screenName:NSString!
     
     var created_at:NSString!
     
@@ -24,6 +27,8 @@ class TwittsterUser: NSObject {
         self.userInJson = json
         
         self.name = json["name"] as! NSString
+        
+        self.screenName = json["screen_name"] as! NSString
         
         self.created_at = json["created_at"] as! NSString
         
