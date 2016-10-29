@@ -66,9 +66,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MainTweetCell", for: indexPath) as! MainTweetCell
         
-        cell.textLabel?.text = self.tableViewDataBackArray[indexPath.row].text
+        let tweet = self.tableViewDataBackArray[indexPath.row]
+        
+        cell.tweet = tweet
         
         return cell
     }
