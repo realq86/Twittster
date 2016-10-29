@@ -30,6 +30,7 @@ func authURL(requestToken:String)->URL{
     return authURLComponents?.url ?? URL(string:"")!
 }
 
+let kCurrentUserKeyInUserDefault = "currentUser"
 // MARK: - Twitter API
 let kTwitterGETCredentials = "/1.1/account/verify_credentials.json"
 

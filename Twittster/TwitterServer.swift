@@ -58,13 +58,21 @@ class TwitterServer: NSObject {
             success: { (accessToken:BDBOAuth1Credential?) in
                 
                 print("FetchAccessToken: Success Token = \(accessToken?.description)")
+                
+                self.getCredentials(
+                    success: { (user:TwittsterUser) in
+                        TwittsterUser.currentUser = user
+                    },
+                    failure: { (error:Error?) in
+                        weakSelf?.loginFailureHandler?()
+                })
+                
                 weakSelf?.loginSuccessHandler?()
             
             }, failure: { (error:Error?) in
             
                 print("FetchAccessToken Fail \(error)")
                 weakSelf?.loginFailureHandler?()
-        
         })
         
         
@@ -81,11 +89,14 @@ class TwitterServer: NSObject {
     }
     
     // MARK: - GET Profile
-    public func getCredentials(success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+    public func getCredentials(success: @escaping (TwittsterUser)->(), failure: @escaping (Error?)->()) {
         
         self.get(endPoint: kTwitterGETCredentials,
                 success: { (response:Any) in
-                    success(response)
+                    
+                    let user = TwittsterUser(withJson: response as! NSDictionary)
+                    success(user)
+                    
                 }) { (error:Error?) in
                     print(error?.localizedDescription)
                     failure(error)

@@ -10,23 +10,70 @@ import UIKit
 
 class TwittsterUser: NSObject {
 
-    var name:String!
+    var userInJson:NSDictionary?
+    var name:NSString!
     
-    var created_at:String!
+    var created_at:NSString!
     
-    var location:String!
+    var location:NSString!
     
-    var idString:String!
+    var idString:NSString!
     
-    init(withJson json:[String:Any]) {
+    init(withJson json:NSDictionary) {
         
-        self.name = json["name"] as! String
+        self.userInJson = json
         
-        self.created_at = json["created_at"] as! String
+        self.name = json["name"] as! NSString
         
-        self.location = json["location"] as! String
+        self.created_at = json["created_at"] as! NSString
         
-        self.idString = json["id_str"] as! String
+        self.location = json["location"] as! NSString
+        
+        self.idString = json["id_str"] as! NSString
+    }
+    
+    static var _currentUser:TwittsterUser?
+    class var currentUser:TwittsterUser? {
+        get {
+            
+            if self._currentUser == nil {
+                let defaults = UserDefaults.standard
+                
+                var user:TwittsterUser
+                
+                if let userData = defaults.object(forKey:kCurrentUserKeyInUserDefault) as? Data {
+                
+                    if let userDictionary = try? JSONSerialization.jsonObject(with: userData, options: []) {
+                        
+                        if let userDictionary = userDictionary as? NSDictionary {
+                            user = TwittsterUser(withJson: userDictionary)
+                            return user
+                        }
+                    }
+                }
+            }
+            
+            return self._currentUser
+
+        }
+        set(user) {
+            
+            if let user = user {
+                self._currentUser = user
+                let defaults = UserDefaults.standard
+
+                do {
+                    let json = try JSONSerialization.data(withJSONObject: (user.userInJson)!, options: [])
+                    defaults.set(json, forKey: kCurrentUserKeyInUserDefault)
+
+                }
+                catch {
+                    print("User class JSON ERROR")
+                    defaults.set(nil, forKey: kCurrentUserKeyInUserDefault)
+
+                }
+            }
+        }
     }
     
 }
