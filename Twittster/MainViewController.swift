@@ -11,19 +11,37 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var tableViewDataBackArray = [AnyObject]()
+    
+    let server = TwitterServer.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupTableView()
         // Do any additional setup after loading the view.
+        
+        self.callAPI {
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func callAPI(_: ()->()) {
+        server.getTimeline(success: { (response:Any) in
+            
+        }) { (error:Error?) in
+                
+        }
+    }
+    
+    func updateTableView() {
+        self.tableView.reloadData()
     }
     
     func setupTableView() {
