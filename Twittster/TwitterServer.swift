@@ -14,6 +14,9 @@ class TwitterServer: NSObject {
     
     let manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
     
+    
+    
+    // MARK: - Login Methods
     var loginSuccessHandler:(()->())?
     var loginFailureHandler:(()->())?
     
@@ -67,14 +70,39 @@ class TwitterServer: NSObject {
         
     }
     
-    public func getCredentials() {
-        manager.get(kTwitterGETCredentials, parameters: nil, progress: nil,
-            success: { (task:URLSessionDataTask, response:Any?) in
-                            
-                print("GET Credentials: \(response)")
-                
+    // MARK: Generic GET
+    private func get(endPoint:String, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
+        manager.get(endPoint, parameters: nil, progress: nil,
+                    success: { (task:URLSessionDataTask, response:Any?) in
+                        success(response)
             }, failure: { (tast:URLSessionDataTask?, error:Error) in
+                failure(error)
         })
+    }
+    
+    // MARK: - GET Profile
+    public func getCredentials(success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+        
+        self.get(endPoint: kTwitterGETCredentials,
+                success: { (response:Any) in
+                    success(response)
+                }) { (error:Error?) in
+                    print(error?.localizedDescription)
+                    failure(error)
+        }
+    }
+    
+    
+    // MARK: - GET Timeline
+    public func getTimeline(success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+        self.get(endPoint: kTwitterGETTimeLine,
+                success: { (response:Any) in
+                    print(response)
+                    success("GET TimeLine Response = \(response)")
+                }) { (error:Error?) in
+                    print("GET TimeLine Error = \(error?.localizedDescription)")
+                    failure(error)
+        }
     }
     
 

@@ -32,3 +32,5 @@ func authURL(requestToken:String)->URL{
 
 // MARK: - Twitter API
 let kTwitterGETCredentials = "/1.1/account/verify_credentials.json"
+
+let kTwitterGETTimeLine = "/1.1/statuses/home_timeline.json"
