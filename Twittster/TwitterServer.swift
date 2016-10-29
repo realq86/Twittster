@@ -99,6 +99,9 @@ class TwitterServer: NSObject {
                 success: { (response:Any) in
                     print(response)
                     success("GET TimeLine Response = \(response)")
+                    let responseDic = response as! [NSDictionary]
+                    let tweetsArray = Tweet.initTweetsWith(array: responseDic)
+                    print(tweetsArray.description)
                 }) { (error:Error?) in
                     print("GET TimeLine Error = \(error?.localizedDescription)")
                     failure(error)

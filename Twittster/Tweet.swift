@@ -28,6 +28,8 @@ class Tweet: NSObject {
         
         self.id = json["id"] as! NSNumber
         
+        self.user = TwittsterUser(withJson: json["user"] as! [String : Any])
+        
         self.created_at = json["created_at"] as! String
         
         self.text = json["text"] as! String
