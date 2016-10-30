@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499559283.001023"
+            timestampString = "499562109.713292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "touchOnStar(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499559283.001023"
+            timestampString = "499562109.713292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121">
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "touchOnStar(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -37,14 +41,126 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499559283.001023"
+            filePath = "Twittster/TwitterServer.swift"
+            timestampString = "499560824.163794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "DetailViewController"
-            landmarkType = "3">
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "postFavoriteDestroy(toTweetID:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Twittster.TwitterServer.postFavoriteDestroy (toTweetID : __ObjC.NSNumber, success : (Twittster.Tweet) -&gt; (), failure : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Twittster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
+                  timestampString = "499561164.374955"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Twittster.TwitterServer.(postFavoriteDestroy (toTweetID : __ObjC.NSNumber, success : (Twittster.Tweet) -&gt; (), failure : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Twittster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
+                  timestampString = "499561164.376406"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/TwitterServer.swift"
+            timestampString = "499560829.383908"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "postFavoriteCreate(toTweetID:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Twittster.TwitterServer.postFavoriteCreate (toTweetID : __ObjC.NSNumber, success : (Twittster.Tweet) -&gt; (), failure : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Twittster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
+                  timestampString = "499561164.379154"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Twittster.TwitterServer.(postFavoriteCreate (toTweetID : __ObjC.NSNumber, success : (Twittster.Tweet) -&gt; (), failure : (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "Twittster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
+                  timestampString = "499561164.380475"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/TwitterServer.swift"
+            timestampString = "499560871.380863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "postFavoriteCreate(toTweetID:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/TwitterServer.swift"
+            timestampString = "499560873.203493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "postFavoriteCreate(toTweetID:success:failure:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

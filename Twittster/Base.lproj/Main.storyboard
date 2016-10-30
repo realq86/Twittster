@@ -53,14 +53,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="245" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-5V-eb7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="343" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-5V-eb7">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MainTweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTweetCell" rowHeight="245" id="8bA-qD-ZX6" customClass="MainTweetCell" customModule="Twittster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="245"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MainTweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTweetCell" rowHeight="343" id="8bA-qD-ZX6" customClass="MainTweetCell" customModule="Twittster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="343"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bA-qD-ZX6" id="aW6-Cy-Wsf">
-                                            <frame key="frameInset" width="375" height="245"/>
+                                            <frame key="frameInset" width="375" height="342"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-UY-lla">
@@ -131,20 +131,21 @@
                                                                 <constraint firstItem="Scq-AU-6S1" firstAttribute="width" secondItem="TYs-ER-Aw0" secondAttribute="width" multiplier="0.2" id="zTI-Y5-QKc"/>
                                                             </constraints>
                                                         </view>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M2y-az-tcb">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M2y-az-tcb">
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2D-RP-6J9">
-                                                                    <state key="normal" title="Reply"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2D-RP-6J9">
+                                                                    <state key="normal" image="reply"/>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5w-fe-2WM">
-                                                                    <state key="normal" title="retweet"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5w-fe-2WM">
+                                                                    <state key="normal" image="retweet"/>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-QF-Mt1">
-                                                                    <state key="normal" title="Star"/>
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-QF-Mt1">
+                                                                    <state key="normal" image="starGrey"/>
+                                                                    <state key="selected" image="starGold"/>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="s88-Xt-MNi"/>
+                                                                <constraint firstAttribute="height" constant="40" id="s88-Xt-MNi"/>
                                                             </constraints>
                                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                         </stackView>
@@ -161,8 +162,11 @@
                                         <connections>
                                             <outlet property="profileImageView" destination="Scq-AU-6S1" id="M7x-6G-X06"/>
                                             <outlet property="profileName" destination="7TC-Wh-2b7" id="c8h-qH-KQ0"/>
+                                            <outlet property="replyButton" destination="C2D-RP-6J9" id="Fdd-dQ-66U"/>
+                                            <outlet property="retweetButton" destination="d5w-fe-2WM" id="o34-qS-rNQ"/>
                                             <outlet property="retweetPanel" destination="1MT-iy-iKY" id="MzS-Vd-k0X"/>
                                             <outlet property="retweetScreenName" destination="qAb-g1-NaL" id="LrL-yA-B44"/>
+                                            <outlet property="starButton" destination="ASn-QF-Mt1" id="bmX-Kf-2KU"/>
                                             <outlet property="tweetContent" destination="fI1-ZW-T6O" id="YJG-Yi-4zd"/>
                                             <outlet property="userScreenName" destination="av5-Gp-jMz" id="QDr-W4-qi2"/>
                                             <segue destination="Dhe-ct-0kh" kind="show" identifier="SegueToDetailViewController" id="mwl-BW-xH4"/>
@@ -433,6 +437,8 @@
                         <outlet property="name" destination="pxF-K4-Xyy" id="Rgm-Ph-bE2"/>
                         <outlet property="profileImage" destination="dZi-f9-LWz" id="A0x-Zx-br2"/>
                         <outlet property="profilePanel" destination="tzU-mF-7Xh" id="EqN-Rc-MC4"/>
+                        <outlet property="replyButton" destination="Ot5-SP-BnF" id="C0V-jv-nhm"/>
+                        <outlet property="retweetButton" destination="jca-gf-OiJ" id="YUu-iu-oed"/>
                         <outlet property="retweetCount" destination="IjD-4q-UoA" id="Cbf-Ct-fQp"/>
                         <outlet property="retweetPanel" destination="4yc-zb-Fdi" id="5vn-Tu-AUy"/>
                         <outlet property="retweetedByUserLabel" destination="apT-oz-Mhz" id="KKA-6z-bXY"/>

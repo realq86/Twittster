@@ -186,6 +186,15 @@ class TwitterServer: NSObject {
     //Find the tweet with the same id in the Server Model
     func find(tweet:Tweet, inModel model:[Tweet])->Tweet {
         
+        let index = findIndexOf(tweet: tweet, inModel: self.timeline!)
+        
+        print("PassedTweet \(tweet.debugDescription)")
+        print("FoundTweet \(model[index].debugDescription)")
+        
+        return model[index]
+    }
+    
+    func findIndexOf(tweet:Tweet, inModel model:[Tweet])->Int {
         let tweetIDInt = tweet.id.intValue
         
         let index = model.index(where: { (eachTweet) -> Bool in
@@ -197,13 +206,14 @@ class TwitterServer: NSObject {
             }
         })
         
-        print("PassedTweet \(tweet.debugDescription)")
-        print("FoundTweet \(model[index!].debugDescription)")
-        
-        return model[index!]
+        return index!
     }
     
-    
+    func updateTweetInModel(withTweet tweet:Tweet) {
+        
+        let index = self.findIndexOf(tweet: tweet, inModel: self.timeline!)
+        self.timeline?[index] = tweet
+    }
     
     
 }

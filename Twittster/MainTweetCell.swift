@@ -18,6 +18,12 @@ class MainTweetCell: UITableViewCell {
     @IBOutlet weak var retweetScreenName: UILabel!
     @IBOutlet weak var retweetPanel: UIView!
     
+    @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
+    
+    
+    
     var retweetBy:Tweet?
     
     var tweet:Tweet? {
@@ -42,8 +48,9 @@ class MainTweetCell: UITableViewCell {
             self.userScreenName.text = tweet!.user.screenName as String
             
             self.tweetContent.text = tweet?.text
-            
-            
+        
+            //Buttons
+            self.starButton.isSelected = tweet!.favorited
             
         }
     }
@@ -52,6 +59,9 @@ class MainTweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.starButton.imageView?.contentMode = .scaleAspectFit
+        self.retweetButton.imageView?.contentMode = .scaleAspectFit
+        self.replyButton.imageView?.contentMode = .scaleAspectFit
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

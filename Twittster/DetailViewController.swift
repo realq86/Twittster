@@ -39,6 +39,8 @@ class DetailViewController: UIViewController {
     
     //Button Views in StackView index 4
     @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -85,11 +87,19 @@ class DetailViewController: UIViewController {
             self.retweetedByUserLabel.text = retweetedBy.user.name
             self.retweetPanel.isHidden = false
         }
+        
+        self.starButton.imageView?.contentMode = .scaleAspectFit
+        self.retweetButton.imageView?.contentMode = .scaleAspectFit
+        self.replyButton.imageView?.contentMode = .scaleAspectFit
     }
     
     
 
-    
+    func refreshViewAndUpdateServerModel(with tweet:Tweet) {
+        let server = TwitterServer.sharedInstance
+        server.updateTweetInModel(withTweet: self.tweet)
+        self.setupViews(with: self.tweet)
+    }
     
     
     
@@ -106,10 +116,11 @@ class DetailViewController: UIViewController {
                 toTweetID: self.tweet.id,
                 success: { (response:Tweet) in
                     self.tweet = response
-                    sender.isSelected = self.tweet.favorited
+                    self.refreshViewAndUpdateServerModel(with: self.tweet)
                 },
                 failure: { (error:Error?) in
                     sender.isSelected = false
+                    self.setupViews(with: self.tweet)
             })
         }
         else {
@@ -118,12 +129,15 @@ class DetailViewController: UIViewController {
                 toTweetID: self.tweet.id,
                 success: { (response:Tweet) in
                     self.tweet = response
-                    sender.isSelected = self.tweet.favorited
+                    self.refreshViewAndUpdateServerModel(with: self.tweet)
                 },
                 failure: { (error:Error?) in
                     sender.isSelected = true
+                    self.setupViews(with: self.tweet)
+
             })
         }
+        
     }
 
     /*
