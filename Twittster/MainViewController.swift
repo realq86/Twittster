@@ -91,9 +91,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = sender as! MainTweetCell
             let detailVC = segue.destination as! DetailViewController
             
-            detailVC.tweet = self.tableViewDataBackArray[cell.tag]
-            
-            
+            let chosenTweetID = self.tableViewDataBackArray[cell.tag].id
+            detailVC.tweet = server.timeline?.first(where: { (eachTweet) -> Bool in
+                return eachTweet.id.intValue == chosenTweetID?.intValue
+            })
+//            print("chosen tweet\(chosenTweetID)")
+//            print("found tweet \(detailVC.tweet)")
         }
         
         

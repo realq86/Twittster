@@ -128,4 +128,31 @@ class TwitterServer: NSObject {
     }
     
 
+    func find(tweet:Tweet)->Tweet {
+        return self.find(tweet: tweet, inModel: self.timeline!)
+    }
+    
+    //Find the tweet with the same id in the Server Model
+    func find(tweet:Tweet, inModel model:[Tweet])->Tweet {
+        
+        let tweetIDInt = tweet.id.intValue
+        
+        let index = model.index(where: { (eachTweet) -> Bool in
+            if eachTweet.id.intValue == tweetIDInt {
+                return true
+            }
+            else {
+                return false
+            }
+        })
+        
+        print("PassedTweet \(tweet.debugDescription)")
+        print("FoundTweet \(model[index!].debugDescription)")
+        
+        return model[index!]
+    }
+    
+    
+    
+    
 }

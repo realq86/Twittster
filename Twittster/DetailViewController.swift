@@ -58,6 +58,12 @@ class DetailViewController: UIViewController {
     
     func setupViews() {
         
+        //Sync up the tweet from the MainVC with the Server's Model
+        self.tweet = TwitterServer.sharedInstance.find(tweet: self.tweet)
+        self.setupViews(with: self.tweet)
+    }
+    
+    func setupViews(with tweet:Tweet) {
         if let imageURL = tweet.user.profileImageURLHTTPS {
             self.profileImage.setImageWith(imageURL)
         }
