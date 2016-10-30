@@ -13,12 +13,28 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     
+    var tweet:Tweet!
+    
+    //Retween info in StackView index 0
     @IBOutlet weak var retweetPanel: UIView!
     
+    //Profile Views in StackView index 1
     @IBOutlet weak var profilePanel: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var screenName: UILabel!
     
     
+    //TweetContent Views in StackView index 2
+    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetTime: UILabel!
+    
+    
+    
+    //TweetStat Views in StackView index 3
     @IBOutlet weak var tweetStatPanel: UIView!
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var likeCount: UILabel!
     
     
     
@@ -27,20 +43,8 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.setupViews()
         
-        
-//        let scrollViewBounds = scrollView.bounds
-////        let containerViewBounds = contentView.bounds
-//        
-//        var scrollViewInsets = UIEdgeInsets.zero
-//        scrollViewInsets.top = scrollViewBounds.size.height/2.0;
-//        scrollViewInsets.top -= contentView.bounds.size.height/2.0;
-//        
-//        scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
-//        scrollViewInsets.bottom -= contentView.bounds.size.height/2.0;
-//        scrollViewInsets.bottom += 1
-//        
-//        scrollView.contentInset = scrollViewInsets
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +52,22 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func setupViews() {
+        
+        if let imageURL = tweet.user.profileImageURLHTTPS {
+            self.profileImage.setImageWith(imageURL)
+        }
+        self.name.text = tweet.user.name as String?
+        
+        self.screenName.text = tweet.user.screenName as String!
+        
+        self.tweetLabel.text = tweet.text
+        
+        self.retweetCount.text = tweet.retweetCount.stringValue
+        
+        self.likeCount.text = tweet.favoritCount.stringValue
+    }
 
     /*
     // MARK: - Navigation

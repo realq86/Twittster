@@ -22,6 +22,12 @@ class Tweet: NSObject {
     
     var retweetCount:NSNumber!
     
+    var retweetedStatus:Tweet?
+    
+    var favorited:Bool!
+    
+    var favoritCount:NSNumber!
+    
     var entities:TweetEntities?
     
     
@@ -38,6 +44,15 @@ class Tweet: NSObject {
         self.retweeted = json["retweeted"] as! Bool
         
         self.retweetCount = json["retweet_count"] as! NSNumber
+        
+        self.retweetedStatus = json["retweeted_status"] as? Tweet
+        
+        self.favorited = json["favorited"] as! Bool
+        
+        self.favoritCount = json["favorite_count"] as! NSNumber
+        
+        
+        
     }
     
 //    var hoursAgo:String? {

@@ -14,7 +14,7 @@ class TwittsterUser: NSObject {
     
     var name:NSString!
     
-    var screenName:NSString!
+    var screenName:String!
     
     var created_at:NSString!
     
@@ -30,7 +30,7 @@ class TwittsterUser: NSObject {
         
         self.name = json["name"] as! NSString
         
-        self.screenName = json["screen_name"] as! NSString
+        self.screenName = "@" + (json["screen_name"] as! String)
         
         self.created_at = json["created_at"] as! NSString
         
