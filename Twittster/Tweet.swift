@@ -11,6 +11,7 @@ import UIKit
 class Tweet: NSObject {
 
     var id:NSNumber!
+    
     var user:TwittsterUser!
     
     var created_at:String!
@@ -37,9 +38,16 @@ class Tweet: NSObject {
         self.retweeted = json["retweeted"] as! Bool
         
         self.retweetCount = json["retweet_count"] as! NSNumber
-        
-        
     }
+    
+//    var hoursAgo:String? {
+//        get {
+//            
+//        }
+//        set {
+//            
+//        }
+//    }
     
     class func initTweetsWith(array json:[Any]) -> [Tweet] {
     
