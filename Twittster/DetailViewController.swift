@@ -77,6 +77,7 @@ class DetailViewController: UIViewController {
         
         self.retweetCount.text = tweet.retweetCount.stringValue
         
+        self.starButton.isSelected = tweet.favorited
         self.likeCount.text = tweet.favoritCount.stringValue
         
         self.retweetPanel.isHidden = true
@@ -84,12 +85,45 @@ class DetailViewController: UIViewController {
             self.retweetedByUserLabel.text = retweetedBy.user.name
             self.retweetPanel.isHidden = false
         }
-//        self.starButton.setImage(UIImage(named:"starGold"), for: .selected)
     }
+    
+    
+
+    
+    
+    
+    
+    
 
     @IBAction func touchOnStar(_ sender: UIButton) {
-        
+
+        //Toggle the selected state, also means isSelected is the user's chocie
         sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected == true {
+
+            TwitterServer.sharedInstance.postFavoriteCreate(
+                toTweetID: self.tweet.id,
+                success: { (response:Tweet) in
+                    self.tweet = response
+                    sender.isSelected = self.tweet.favorited
+                },
+                failure: { (error:Error?) in
+                    sender.isSelected = false
+            })
+        }
+        else {
+            
+            TwitterServer.sharedInstance.postFavoriteDestroy(
+                toTweetID: self.tweet.id,
+                success: { (response:Tweet) in
+                    self.tweet = response
+                    sender.isSelected = self.tweet.favorited
+                },
+                failure: { (error:Error?) in
+                    sender.isSelected = true
+            })
+        }
     }
 
     /*
