@@ -14,7 +14,7 @@ class TwitterServer: NSObject {
     
     let manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
     
-    
+    var timeline:[Tweet]?
     
     // MARK: - Login Methods
     var loginSuccessHandler:(()->())?
@@ -118,6 +118,7 @@ class TwitterServer: NSObject {
                     print("GET TimeLine Response = \(response)")
                     let responseDic = response as! [NSDictionary]
                     let tweetsArray = Tweet.initTweetsWith(array: responseDic)
+                    self.timeline = tweetsArray
                     print(tweetsArray.description)
                     success(tweetsArray)
                 }) { (error:Error?) in
