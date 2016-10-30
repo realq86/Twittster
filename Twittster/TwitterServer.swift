@@ -95,6 +95,9 @@ class TwitterServer: NSObject {
         })
     }
     
+
+    
+    
     // MARK: - GET Profile
     public func getCredentials(success: @escaping (TwittsterUser)->(), failure: @escaping (Error?)->()) {
         
@@ -127,6 +130,54 @@ class TwitterServer: NSObject {
         }
     }
     
+    // MARK: Generic POST
+    private func post(endPoint:String, parameters:Any?, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
+        manager.post(endPoint, parameters: parameters, progress: nil,
+                     success: { (task:URLSessionDataTask, response:Any?) in
+                        if let urlResponse = task.response as? HTTPURLResponse {
+                            print("POST TASK = \(urlResponse.statusCode)")
+                        }
+                        success(response)
+            }, failure: { (tast:URLSessionDataTask?, error:Error) in
+                failure(error)
+        })
+    }
+    
+    // MARK: - POST Favorite Create
+    public func postFavoriteCreate(toTweetID id:NSNumber, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
+        let parameters:NSDictionary = ["id":id.stringValue] as NSDictionary
+        
+        
+        self.post(endPoint:kTwitterPOSTFavoritesCreate, parameters:parameters, success: { (response:Any) in
+            
+            print(response)
+            
+            let updatedTweet = Tweet(withJson: response as! [String : Any])
+            success(updatedTweet)
+        
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
+    
+    // MARK: - POST Favorite Destroy
+    public func postFavoriteDestroy(toTweetID id:NSNumber, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
+        let parameters:NSDictionary = ["id":id.stringValue] as NSDictionary
+        
+        
+        self.post(endPoint:kTwitterPOSTFavoritesDestroy, parameters:parameters, success: { (response:Any) in
+            
+            print(response)
+            
+            let updatedTweet = Tweet(withJson: response as! [String : Any])
+            success(updatedTweet)
+            
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
 
     func find(tweet:Tweet)->Tweet {
         return self.find(tweet: tweet, inModel: self.timeline!)
@@ -156,3 +207,21 @@ class TwitterServer: NSObject {
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

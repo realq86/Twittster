@@ -38,3 +38,8 @@ let kUserLogoutNotificationName = "UserDidLogout"
 let kTwitterGETCredentials = "/1.1/account/verify_credentials.json"
 
 let kTwitterGETTimeLine = "/1.1/statuses/home_timeline.json"
+
+
+let kTwitterPOSTFavoritesCreate = "/1.1/favorites/create.json"
+
+let kTwitterPOSTFavoritesDestroy = "/1.1/favorites/destroy.json"
