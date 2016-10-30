@@ -196,7 +196,7 @@
         <!--Detail View Controller-->
         <scene sceneID="se3-wt-kjk">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Dhe-ct-0kh" customClass="DetailViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dhe-ct-0kh" customClass="DetailViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LTj-rD-6VU"/>
                         <viewControllerLayoutGuide type="bottom" id="eJE-KR-A5v"/>
@@ -342,22 +342,52 @@
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p1r-x5-VGl">
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot5-SP-BnF">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-BX-k1l">
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot5-SP-BnF">
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <state key="normal" image="reply"/>
+                                                                            </button>
+                                                                        </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <state key="normal" image="reply"/>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jca-gf-OiJ">
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="Ot5-SP-BnF" secondAttribute="bottom" constant="3" id="7PE-wx-I5m"/>
+                                                                            <constraint firstItem="Ot5-SP-BnF" firstAttribute="centerX" secondItem="5kS-BX-k1l" secondAttribute="centerX" id="ivZ-bx-3Lf"/>
+                                                                            <constraint firstItem="Ot5-SP-BnF" firstAttribute="top" secondItem="5kS-BX-k1l" secondAttribute="top" constant="3" id="vTG-Ww-j1b"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nx-57-JEY">
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jca-gf-OiJ">
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <state key="normal" image="retweet"/>
+                                                                            </button>
+                                                                        </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <state key="normal" image="retweet"/>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnZ-P5-ExS">
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="jca-gf-OiJ" secondAttribute="bottom" constant="3" id="Pzw-XM-71X"/>
+                                                                            <constraint firstItem="jca-gf-OiJ" firstAttribute="top" secondItem="6Nx-57-JEY" secondAttribute="top" constant="3" id="fpg-9T-XYa"/>
+                                                                            <constraint firstItem="jca-gf-OiJ" firstAttribute="centerX" secondItem="6Nx-57-JEY" secondAttribute="centerX" id="yzi-py-noi"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejt-mj-I3s">
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnZ-P5-ExS">
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <state key="normal" image="starGrey"/>
+                                                                                <state key="selected" image="starGold"/>
+                                                                                <connections>
+                                                                                    <action selector="touchOnStar:" destination="Dhe-ct-0kh" eventType="touchUpInside" id="rxi-dt-FJc"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <state key="normal" image="starGrey"/>
-                                                                        <state key="selected" image="starGold"/>
-                                                                        <connections>
-                                                                            <action selector="touchOnStar:" destination="Dhe-ct-0kh" eventType="touchUpInside" id="rxi-dt-FJc"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="MnZ-P5-ExS" secondAttribute="bottom" constant="3" id="0nQ-rS-m3D"/>
+                                                                            <constraint firstItem="MnZ-P5-ExS" firstAttribute="centerX" secondItem="Ejt-mj-I3s" secondAttribute="centerX" id="ZUZ-83-Rqt"/>
+                                                                            <constraint firstItem="MnZ-P5-ExS" firstAttribute="top" secondItem="Ejt-mj-I3s" secondAttribute="top" constant="3" id="sK6-FL-CDd"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
@@ -373,28 +403,28 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="7LA-ti-Sdi" firstAttribute="top" secondItem="rlA-9C-Z4Q" secondAttribute="top" id="NlY-1r-BGQ"/>
                                             <constraint firstAttribute="trailing" secondItem="7LA-ti-Sdi" secondAttribute="trailing" id="OJ5-kt-WDy"/>
                                             <constraint firstItem="7LA-ti-Sdi" firstAttribute="leading" secondItem="rlA-9C-Z4Q" secondAttribute="leading" id="aY7-by-MER"/>
+                                            <constraint firstItem="7LA-ti-Sdi" firstAttribute="top" secondItem="rlA-9C-Z4Q" secondAttribute="top" id="vuK-D7-PAC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rlA-9C-Z4Q" secondAttribute="trailing" id="371-Qu-ZdP"/>
                                     <constraint firstItem="rlA-9C-Z4Q" firstAttribute="leading" secondItem="muq-Pn-5Ge" secondAttribute="leading" id="5zF-YQ-iM0"/>
-                                    <constraint firstAttribute="bottom" secondItem="rlA-9C-Z4Q" secondAttribute="bottom" id="EeP-nO-9sY"/>
-                                    <constraint firstItem="rlA-9C-Z4Q" firstAttribute="top" secondItem="muq-Pn-5Ge" secondAttribute="top" id="xwx-2o-9bX"/>
+                                    <constraint firstItem="rlA-9C-Z4Q" firstAttribute="top" secondItem="muq-Pn-5Ge" secondAttribute="top" id="M0k-yi-K7D"/>
+                                    <constraint firstAttribute="bottom" secondItem="rlA-9C-Z4Q" secondAttribute="bottom" id="mlG-J8-Xdd"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rlA-9C-Z4Q" firstAttribute="width" secondItem="egc-ho-R8f" secondAttribute="width" id="Gfg-9Z-EaG"/>
-                            <constraint firstItem="muq-Pn-5Ge" firstAttribute="top" secondItem="LTj-rD-6VU" secondAttribute="bottom" id="ZrY-jH-3N6"/>
+                            <constraint firstItem="rlA-9C-Z4Q" firstAttribute="height" secondItem="egc-ho-R8f" secondAttribute="height" id="ane-Wp-dVf"/>
                             <constraint firstItem="muq-Pn-5Ge" firstAttribute="leading" secondItem="egc-ho-R8f" secondAttribute="leading" id="b4M-k5-OzV"/>
-                            <constraint firstItem="eJE-KR-A5v" firstAttribute="top" secondItem="muq-Pn-5Ge" secondAttribute="bottom" id="koh-o8-nu1"/>
+                            <constraint firstItem="muq-Pn-5Ge" firstAttribute="top" secondItem="egc-ho-R8f" secondAttribute="top" id="gjy-wI-bdx"/>
+                            <constraint firstItem="eJE-KR-A5v" firstAttribute="top" secondItem="muq-Pn-5Ge" secondAttribute="bottom" id="oqH-Dp-hTs"/>
                             <constraint firstAttribute="trailing" secondItem="muq-Pn-5Ge" secondAttribute="trailing" id="rCt-gG-VPp"/>
-                            <constraint firstItem="rlA-9C-Z4Q" firstAttribute="height" secondItem="egc-ho-R8f" secondAttribute="height" id="t0J-Na-0Ot"/>
                         </constraints>
                     </view>
                     <connections>
