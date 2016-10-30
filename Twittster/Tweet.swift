@@ -16,6 +16,8 @@ class Tweet: NSObject {
     
     var created_at:String!
     
+    var created_atLocalFormate:String!
+    
     var text:String!
     
     var retweeted:Bool!

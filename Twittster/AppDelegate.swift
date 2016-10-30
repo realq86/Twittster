@@ -14,6 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static var sharedTwitterDateFormatter = { () -> DateFormatter in
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "EEE MMM dd HH:mm:ss '+0000' yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        return formatter
+    }()
+    
+    static var sharedLocalDateFormatter = { () -> DateFormatter in
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "MM/dd/yyy  h:mm a"
+        formatter.timeZone = TimeZone(secondsFromGMT: NSTimeZone.local.secondsFromGMT())
+        return formatter
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -12,7 +12,7 @@ class TwittsterUser: NSObject {
 
     var userInJson:NSDictionary?
     
-    var name:NSString!
+    var name:String!
     
     var screenName:String!
     
@@ -28,7 +28,7 @@ class TwittsterUser: NSObject {
         
         self.userInJson = json
         
-        self.name = json["name"] as! NSString
+        self.name = json["name"] as! String
         
         self.screenName = "@" + (json["screen_name"] as! String)
         
