@@ -67,14 +67,14 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MT-iy-iKY" userLabel="ReTweetView">
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-RX-ds9">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-RX-ds9">
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="uXW-RX-ds9" secondAttribute="height" multiplier="1.5:1" id="WYi-sQ-E6O"/>
+                                                                        <constraint firstAttribute="width" secondItem="uXW-RX-ds9" secondAttribute="height" multiplier="1:1" id="WYi-sQ-E6O"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAb-g1-NaL">
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="15" id="zku-EG-6mi"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="zku-EG-6mi"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
@@ -161,6 +161,8 @@
                                         <connections>
                                             <outlet property="profileImageView" destination="Scq-AU-6S1" id="M7x-6G-X06"/>
                                             <outlet property="profileName" destination="7TC-Wh-2b7" id="c8h-qH-KQ0"/>
+                                            <outlet property="retweetPanel" destination="1MT-iy-iKY" id="MzS-Vd-k0X"/>
+                                            <outlet property="retweetScreenName" destination="qAb-g1-NaL" id="LrL-yA-B44"/>
                                             <outlet property="tweetContent" destination="fI1-ZW-T6O" id="YJG-Yi-4zd"/>
                                             <outlet property="userScreenName" destination="av5-Gp-jMz" id="QDr-W4-qi2"/>
                                             <segue destination="Dhe-ct-0kh" kind="show" identifier="SegueToDetailViewController" id="mwl-BW-xH4"/>
@@ -211,13 +213,13 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yc-zb-Fdi" userLabel="ReTweetView">
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31f-m8-DxE">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="31f-m8-DxE">
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="31f-m8-DxE" secondAttribute="height" multiplier="1:1" id="ri1-gn-Xvd"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apT-oz-Mhz">
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -264,12 +266,12 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjJ-Ez-OeK" userLabel="TweetView">
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0Z-H7-EM8">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" verticalCompressionResistancePriority="746" text="LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET LOAD OF TWEET " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0Z-H7-EM8">
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12/2000, 08:08 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTg-XU-kjb">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="12/12/2000, 08:08 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTg-XU-kjb">
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -399,6 +401,7 @@
                         <outlet property="profilePanel" destination="tzU-mF-7Xh" id="EqN-Rc-MC4"/>
                         <outlet property="retweetCount" destination="IjD-4q-UoA" id="Cbf-Ct-fQp"/>
                         <outlet property="retweetPanel" destination="4yc-zb-Fdi" id="5vn-Tu-AUy"/>
+                        <outlet property="retweetedByUserLabel" destination="apT-oz-Mhz" id="KKA-6z-bXY"/>
                         <outlet property="screenName" destination="S3C-Gt-rvh" id="o11-RB-Gy1"/>
                         <outlet property="scrollView" destination="muq-Pn-5Ge" id="c4c-Fa-EZw"/>
                         <outlet property="tweetLabel" destination="F0Z-H7-EM8" id="Pmh-eg-Ray"/>
@@ -429,4 +432,7 @@
             <point key="canvasLocation" x="1174" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="retweet" width="32" height="32"/>
+    </resources>
 </document>

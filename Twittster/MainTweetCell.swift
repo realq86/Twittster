@@ -15,19 +15,36 @@ class MainTweetCell: UITableViewCell {
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var userScreenName: UILabel!
     @IBOutlet weak var tweetContent: UILabel!
+    @IBOutlet weak var retweetScreenName: UILabel!
+    @IBOutlet weak var retweetPanel: UIView!
+    
+    var retweetBy:Tweet?
     
     var tweet:Tweet? {
 
         didSet {
+            self.retweetPanel.isHidden = true
+            if let retweetedBy = tweet?.retweetedBy {
+                
+                self.retweetPanel.isHidden = false
+                
+                self.retweetBy = retweetedBy
+                self.retweetScreenName.text = self.retweetBy?.user.name
+            }
+            
+            
             if let profileImageURL = self.tweet?.user.profileImageURLHTTPS {
                 self.profileImageView.setImageWith(profileImageURL)
             }
             
             self.profileName.text = tweet!.user.name as String?
             
-            self.userScreenName.text = "@" + (tweet!.user.screenName as String)
+            self.userScreenName.text = tweet!.user.screenName as String
             
             self.tweetContent.text = tweet?.text
+            
+            
+            
         }
     }
     

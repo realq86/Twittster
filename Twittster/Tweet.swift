@@ -9,7 +9,7 @@
 import UIKit
 
 class Tweet: NSObject {
-
+    
     var id:NSNumber!
     
     var user:TwittsterUser!
@@ -22,7 +22,7 @@ class Tweet: NSObject {
     
     var retweetCount:NSNumber!
     
-    var retweetedStatus:Tweet?
+    var retweetedBy:Tweet?
     
     var favorited:Bool!
     
@@ -33,26 +33,37 @@ class Tweet: NSObject {
     
     init(withJson json:[String:Any]) {
         
-        self.id = json["id"] as! NSNumber
-        
-        self.user = TwittsterUser(withJson: json["user"] as! NSDictionary)
-        
-        self.created_at = json["created_at"] as! String
-        
-        self.text = json["text"] as! String
-        
-        self.retweeted = json["retweeted"] as! Bool
-        
-        self.retweetCount = json["retweet_count"] as! NSNumber
-        
-        self.retweetedStatus = json["retweeted_status"] as? Tweet
-        
-        self.favorited = json["favorited"] as! Bool
-        
-        self.favoritCount = json["favorite_count"] as! NSNumber
+        var newJson = json
+        if let retweetStatusField = json["retweeted_status"] as? [String:Any] {
+            
+            newJson = retweetStatusField
+            var retweetedByJson = json
+            retweetedByJson.removeValue(forKey: "retweeted_status")
+            self.retweetedBy = Tweet(withJson: retweetedByJson)
+        }
         
         
+        self.id = newJson["id"] as! NSNumber
         
+        self.user = TwittsterUser(withJson: newJson["user"] as! NSDictionary)
+        
+        self.created_at = newJson["created_at"] as! String
+        
+        let dateFormatter = AppDelegate.sharedTwitterDateFormatter
+        if let date = dateFormatter.date(from: self.created_at) {
+            self.created_atLocalFormate = AppDelegate.sharedLocalDateFormatter.string(from: date)
+        }
+        self.text = newJson["text"] as! String
+        
+        self.retweeted = newJson["retweeted"] as! Bool
+        
+        self.retweetCount = newJson["retweet_count"] as! NSNumber
+        
+ 
+        
+        self.favorited = newJson["favorited"] as! Bool
+        
+        self.favoritCount = newJson["favorite_count"] as! NSNumber
     }
     
 //    var hoursAgo:String? {

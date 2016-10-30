@@ -68,6 +68,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTweetCell", for: indexPath) as! MainTweetCell
         
+        cell.tag = indexPath.row
+        
         let tweet = self.tableViewDataBackArray[indexPath.row]
         
         cell.tweet = tweet
@@ -76,15 +78,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "SegueToDetailViewController" {
+            
+            let cell = sender as! MainTweetCell
+            let detailVC = segue.destination as! DetailViewController
+            
+            detailVC.tweet = self.tableViewDataBackArray[cell.tag]
+            
+            
+        }
+        
+        
      }
-     */
+ 
     @IBAction func onLogout(_ sender: AnyObject) {
         
         TwitterServer.sharedInstance.logout()

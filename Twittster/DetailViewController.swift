@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     
     //Retween info in StackView index 0
     @IBOutlet weak var retweetPanel: UIView!
+    @IBOutlet weak var retweetedByUserLabel: UILabel!
     
     //Profile Views in StackView index 1
     @IBOutlet weak var profilePanel: UIView!
@@ -64,9 +65,17 @@ class DetailViewController: UIViewController {
         
         self.tweetLabel.text = tweet.text
         
+        self.tweetTime.text = tweet.created_atLocalFormate
+        
         self.retweetCount.text = tweet.retweetCount.stringValue
         
         self.likeCount.text = tweet.favoritCount.stringValue
+        
+        self.retweetPanel.isHidden = true
+        if let retweetedBy = tweet.retweetedBy {
+            self.retweetedByUserLabel.text = retweetedBy.user.name
+            self.retweetPanel.isHidden = false
+        }
     }
 
     /*
