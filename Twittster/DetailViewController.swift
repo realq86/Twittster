@@ -37,6 +37,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var likeCount: UILabel!
     
+    //Button Views in StackView index 4
+    @IBOutlet weak var starButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -76,6 +78,12 @@ class DetailViewController: UIViewController {
             self.retweetedByUserLabel.text = retweetedBy.user.name
             self.retweetPanel.isHidden = false
         }
+//        self.starButton.setImage(UIImage(named:"starGold"), for: .selected)
+    }
+
+    @IBAction func touchOnStar(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
     }
 
     /*
