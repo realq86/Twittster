@@ -195,7 +195,23 @@ class TwitterServer: NSObject {
     }
     
     
-    
+    // MARK: - POST Direct Message
+    public func postDirectMessageTo(reciever:TwittsterUser, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+        let screenName = NSMutableString(string: reciever.screenName)
+        screenName.deleteCharacters(in: NSRange(location: 0,length: 1))
+        
+        let parameter = ["screen_name":screenName, "text":text] as NSDictionary
+        
+        self.post(endPoint:kDirectMessage, parameters:parameter, success: { (response:Any) in
+            
+            print(response)
+            success(response)
+            
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
     
     
     
