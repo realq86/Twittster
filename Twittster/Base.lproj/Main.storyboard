@@ -194,6 +194,11 @@
                                 <action selector="onLogout:" destination="6u2-Mq-344" id="OrI-iJ-A1k"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="bmG-gc-CpP">
+                            <connections>
+                                <segue destination="nfY-EG-Qih" kind="presentation" identifier="SegueToComposeNaviVC" id="9gT-yZ-KOF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MrO-5V-eb7" id="5GT-du-hg1"/>
@@ -594,4 +599,7 @@
         <image name="starGold" width="32" height="32"/>
         <image name="starGrey" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9gT-yZ-KOF"/>
+    </inferredMetricsTieBreakers>
 </document>

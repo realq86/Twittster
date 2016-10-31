@@ -52,22 +52,47 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
             if let tweetURLEncoded = tweetString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
                 
-                let server = TwitterServer.sharedInstance
-                    server.postDirectMessageTo(
-                        reciever: reciever,
-                        withText: tweetURLEncoded,
-                        success: { (response:Any) in
-                            
-                            self.finishedCompsing()
-                            
-                            print("Message sent!!!")
-                        },
-                        failure: { (error:Error?) in
-                            print(error?.localizedDescription)
-                    })
+                if reciever == nil {
+                    self.tweetMessage(tweetString)
+                }
+                else {
+                    self.sendDirectMessage(tweetString)
+                }
             }
         }
         
+    }
+    
+    
+    func tweetMessage(_ tweetURLEncoded:String) {
+        let server = TwitterServer.sharedInstance
+        server.postTweet(
+            withText: tweetURLEncoded,
+            success: { (response:Any) in
+                
+                self.finishedCompsing()
+                
+                print("Tweet sent!!!")
+            },
+            failure: { (error:Error?) in
+                print(error?.localizedDescription)
+        })
+    }
+    
+    func sendDirectMessage(_ tweetURLEncoded:String) {
+        let server = TwitterServer.sharedInstance
+        server.postDirectMessageTo(
+            reciever: reciever,
+            withText: tweetURLEncoded,
+            success: { (response:Any) in
+                
+                self.finishedCompsing()
+                
+                print("Message sent!!!")
+            },
+            failure: { (error:Error?) in
+                print(error?.localizedDescription)
+        })
     }
     
     @IBAction func touchOnCancel(_ sender: AnyObject) {

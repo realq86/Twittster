@@ -213,6 +213,21 @@ class TwitterServer: NSObject {
         }
     }
     
+    // MARK: - POST Tweet Message
+    public func postTweet(withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+
+        let parameter = ["status":text] as NSDictionary
+        
+        self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
+            
+            print(response)
+            success(response)
+            
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
     
     
     // MARK: - Local timeline entry and search

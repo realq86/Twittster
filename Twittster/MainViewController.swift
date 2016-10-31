@@ -108,8 +108,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             detailVC.tweet = server.timeline?.first(where: { (eachTweet) -> Bool in
                 return eachTweet.id.intValue == chosenTweetID?.intValue
             })
-
         }
+        
+//        if segue.identifier == "SegueToComposeNaviVC" {
+//            
+//            let naviVC = segue.destination as! UINavigationController
+//            let composeVC = naviVC.viewControllers[0] as! ComposeViewController
+//        }
+
         
         
      }
