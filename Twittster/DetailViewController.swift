@@ -102,6 +102,16 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBAction func touchOnRetweet(_ sender: UIButton) {
+        TwitterServer.sharedInstance.postRetweet(
+            tweet: self.tweet,
+            success: { (tweet:Tweet) in
+                
+            },
+            failure: { (error:Error?) in
+                
+        })
+    }
     
     
 
@@ -134,10 +144,8 @@ class DetailViewController: UIViewController {
                 failure: { (error:Error?) in
                     sender.isSelected = true
                     self.setupViews(with: self.tweet)
-
             })
         }
-        
     }
 
     /*

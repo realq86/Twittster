@@ -179,6 +179,28 @@ class TwitterServer: NSObject {
         }
     }
 
+    // MARK: - POST Retweet
+    public func postRetweet(tweet:Tweet, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
+        let urlString = urlStringToRetweet(tweet: tweet)
+        self.post(endPoint:urlString, parameters:nil, success: { (response:Any) in
+            
+            print(response)
+            let newTweet = Tweet(withJson: response as! [String : Any])
+            success(newTweet)
+            
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - Local timeline entry and search
+
     func find(tweet:Tweet)->Tweet {
         return self.find(tweet: tweet, inModel: self.timeline!)
     }

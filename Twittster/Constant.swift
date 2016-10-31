@@ -43,3 +43,13 @@ let kTwitterGETTimeLine = "/1.1/statuses/home_timeline.json"
 let kTwitterPOSTFavoritesCreate = "/1.1/favorites/create.json"
 
 let kTwitterPOSTFavoritesDestroy = "/1.1/favorites/destroy.json"
+
+
+func urlStringToRetweet(tweet:Tweet) -> String{
+    
+    let id = tweet.id.stringValue
+    
+    let kTWitterPOSTRetweet = "/1.1/statuses/retweet/\(id).json"
+    
+    return kTWitterPOSTRetweet
+}
