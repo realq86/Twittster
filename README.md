@@ -21,7 +21,7 @@ The following **optional** features are implemented:
 - [X] When composing, you should have a countdown in the upper right for the tweet limit.
 - [X] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [X] Retweeting and favoriting should increment the retweet and favorite count.
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+- [1/2] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [X] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
@@ -44,11 +44,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Designing the local model took the most amount of time as I choose to add new tweet, or update retweet/fav count locally stored in the singleton.  I was anticipating to implement a refresh timer so simply using array index or tableView indexPath will not be safe to update the model with.  I choose to search for tweet and update them in the model by Tweet's ID.  However I was not able to create the refresh timer in "time!"
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Chi Hwa Ting]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
