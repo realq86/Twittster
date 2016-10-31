@@ -26,6 +26,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.callAPI {
             
         }
+        
+        let notificationName = Notification.Name(kRetweetedNotificationName)
+        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            
+            self.updateTableView()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

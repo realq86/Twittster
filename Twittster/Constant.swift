@@ -53,3 +53,5 @@ func urlStringToRetweet(tweet:Tweet) -> String{
     
     return kTWitterPOSTRetweet
 }
+
+let kRetweetedNotificationName = "NotificationNameRetweeted"

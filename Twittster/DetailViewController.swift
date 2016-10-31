@@ -97,8 +97,8 @@ class DetailViewController: UIViewController {
 
     func refreshViewAndUpdateServerModel(with tweet:Tweet) {
         let server = TwitterServer.sharedInstance
-        server.updateTweetInModel(withTweet: self.tweet)
-        self.setupViews(with: self.tweet)
+        server.updateTweetInModel(withTweet: tweet)
+        self.setupViews(with: tweet)
     }
     
     
@@ -106,10 +106,10 @@ class DetailViewController: UIViewController {
         TwitterServer.sharedInstance.postRetweet(
             tweet: self.tweet,
             success: { (tweet:Tweet) in
-                
+                self.tweet = tweet
+                self.refreshViewAndUpdateServerModel(with: self.tweet)
             },
             failure: { (error:Error?) in
-                
         })
     }
     

@@ -35,7 +35,7 @@ class MainTweetCell: UITableViewCell {
                 self.retweetPanel.isHidden = false
                 
                 self.retweetBy = retweetedBy
-                self.retweetScreenName.text = self.retweetBy?.user.name
+                self.retweetScreenName.text = "@" + (self.retweetBy?.user.name)!
             }
             
             
@@ -72,8 +72,26 @@ class MainTweetCell: UITableViewCell {
     
     func refreshViewAndUpdateServerModel(with tweet:Tweet) {
         let server = TwitterServer.sharedInstance
-        server.updateTweetInModel(withTweet: self.tweet)
+        server.updateTweetInModel(withTweet: tweet)
+        
+        let notificationName = Notification.Name(kRetweetedNotificationName)
+        NotificationCenter.default.post(name: notificationName, object: self)
     }
+    
+    @IBAction func onTouchRetweet(_ sender: UIButton) {
+        TwitterServer.sharedInstance.postRetweet(
+            tweet: self.tweet,
+            success: { (tweet:Tweet) in
+                self.tweet = tweet
+                self.refreshViewAndUpdateServerModel(with: self.tweet)
+            },
+            failure: { (error:Error?) in
+        })
+    }
+    
+    
+    
+    
     
     @IBAction func touchOnStar(_ sender: UIButton) {
         
