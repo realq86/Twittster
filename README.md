@@ -38,7 +38,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://cloud.githubusercontent.com/assets/5937001/19846543/7c35de5e-9efd-11e6-963c-ecd91db96f60.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://cloud.githubusercontent.com/assets/5937001/19846556/af881dbc-9efd-11e6-9d47-cd284500af39.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
