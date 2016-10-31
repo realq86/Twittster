@@ -19,6 +19,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var tweetButton: UIBarButtonItem!
+    @IBOutlet weak var charCountLabel: UILabel!
+    
+    
     var receiver:TwittsterUser?
     
     var replyToTweet:Tweet?
@@ -62,6 +65,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             self.tweetButton.title = "Message"
         }
     }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        let chars = textView.text.characters
+        self.charCountLabel.text = String(chars.count)
+    }
+
     
     @IBAction func touchOnTweet(_ sender: AnyObject) {
         
