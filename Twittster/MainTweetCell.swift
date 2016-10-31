@@ -41,7 +41,7 @@ class MainTweetCell: UITableViewCell {
                 self.retweetPanel.isHidden = false
                 
                 self.retweetBy = retweetedBy
-                self.retweetScreenName.text = "@" + (self.retweetBy?.user.screenName)!
+                self.retweetScreenName.text = (self.retweetBy?.user.screenName)!
             }
             
             
