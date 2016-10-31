@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mec-kK-iZ1">
@@ -50,17 +50,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Wrn-0h-Esm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sjD-bY-nWu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="343" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-5V-eb7">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MainTweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTweetCell" rowHeight="343" id="8bA-qD-ZX6" customClass="MainTweetCell" customModule="Twittster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="343"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="343"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bA-qD-ZX6" id="aW6-Cy-Wsf">
-                                            <frame key="frameInset" width="375" height="342"/>
+                                            <frame key="frameInset" width="320" height="342"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-UY-lla">
@@ -113,20 +113,27 @@
                                                                         <constraint firstAttribute="width" secondItem="Scq-AU-6S1" secondAttribute="height" multiplier="1:1" id="urJ-HP-VbY"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-yk-FIv">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstItem="fI1-ZW-T6O" firstAttribute="top" secondItem="7TC-Wh-2b7" secondAttribute="bottom" constant="10" id="63d-iW-209"/>
                                                                 <constraint firstItem="av5-Gp-jMz" firstAttribute="baseline" secondItem="7TC-Wh-2b7" secondAttribute="baseline" id="7Jj-Js-6GG"/>
                                                                 <constraint firstItem="7TC-Wh-2b7" firstAttribute="leading" secondItem="Scq-AU-6S1" secondAttribute="trailing" constant="10" id="CU7-jL-vTy"/>
+                                                                <constraint firstItem="fI1-ZW-T6O" firstAttribute="top" secondItem="Da1-yk-FIv" secondAttribute="bottom" constant="10" id="Nnm-7c-E3Q"/>
                                                                 <constraint firstItem="Scq-AU-6S1" firstAttribute="top" secondItem="TYs-ER-Aw0" secondAttribute="top" constant="10" id="NoG-7D-xPI"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fI1-ZW-T6O" secondAttribute="trailing" constant="10" id="Phb-Qh-m6s"/>
+                                                                <constraint firstItem="Da1-yk-FIv" firstAttribute="trailing" secondItem="av5-Gp-jMz" secondAttribute="trailing" id="TvM-XF-rKy"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Scq-AU-6S1" secondAttribute="bottom" constant="10" id="YIW-Ra-6gL"/>
                                                                 <constraint firstItem="av5-Gp-jMz" firstAttribute="leading" secondItem="7TC-Wh-2b7" secondAttribute="trailing" constant="10" id="fvl-8f-QWH"/>
                                                                 <constraint firstItem="Scq-AU-6S1" firstAttribute="leading" secondItem="TYs-ER-Aw0" secondAttribute="leading" constant="10" id="j6K-gb-OoW"/>
                                                                 <constraint firstItem="fI1-ZW-T6O" firstAttribute="leading" secondItem="7TC-Wh-2b7" secondAttribute="leading" id="jrq-yH-zIe"/>
                                                                 <constraint firstItem="7TC-Wh-2b7" firstAttribute="top" secondItem="TYs-ER-Aw0" secondAttribute="top" constant="10" id="tpG-oF-Ap2"/>
                                                                 <constraint firstAttribute="bottom" secondItem="fI1-ZW-T6O" secondAttribute="bottom" constant="10" id="uP1-Jh-5fq"/>
+                                                                <constraint firstItem="Da1-yk-FIv" firstAttribute="top" secondItem="av5-Gp-jMz" secondAttribute="bottom" constant="5" id="xMm-BI-tQ4"/>
                                                                 <constraint firstAttribute="trailing" secondItem="av5-Gp-jMz" secondAttribute="trailing" constant="10" id="xba-VG-AhK"/>
                                                                 <constraint firstItem="Scq-AU-6S1" firstAttribute="width" secondItem="TYs-ER-Aw0" secondAttribute="width" multiplier="0.2" id="zTI-Y5-QKc"/>
                                                             </constraints>
@@ -169,6 +176,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="minFromNow" destination="Da1-yk-FIv" id="AmN-ra-AJX"/>
                                             <outlet property="profileImageView" destination="Scq-AU-6S1" id="M7x-6G-X06"/>
                                             <outlet property="profileName" destination="7TC-Wh-2b7" id="c8h-qH-KQ0"/>
                                             <outlet property="replyButton" destination="C2D-RP-6J9" id="Fdd-dQ-66U"/>
@@ -220,7 +228,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IKB-g5-gTb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Due-qi-XPz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5T-aI-4Nm" userLabel="ProfileView">
@@ -290,6 +298,7 @@
                         <outlet property="profileNameLabel" destination="TKs-2f-Oyc" id="R2h-He-1e3"/>
                         <outlet property="screenNameLabel" destination="T5l-YI-HjM" id="8xq-5S-siH"/>
                         <outlet property="textView" destination="l9t-Ef-VOc" id="ZJj-Il-Ius"/>
+                        <outlet property="tweetButton" destination="EAk-fm-IX1" id="aq0-3q-Ieb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9V-Fe-6sC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,7 +314,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eJE-KR-A5v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="egc-ho-R8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muq-Pn-5Ge">
@@ -391,7 +400,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="kTg-XU-kjb" secondAttribute="trailing" constant="10" id="tfA-Nr-4uK"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9W-L0-fKk">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9W-L0-fKk" userLabel="TweetStatView">
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHv-9Y-ZDO" userLabel="TweetStat">
                                                                 <subviews>
@@ -449,6 +458,9 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot5-SP-BnF">
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="30" id="VPI-04-w6b"/>
+                                                                                </constraints>
                                                                                 <state key="normal" image="reply"/>
                                                                                 <connections>
                                                                                     <segue destination="nfY-EG-Qih" kind="presentation" identifier="SegueToComposeNaviVC" id="vnG-xQ-Ntp"/>
@@ -508,6 +520,14 @@
                                                             <constraint firstItem="p1r-x5-VGl" firstAttribute="top" secondItem="oS5-bY-OiV" secondAttribute="top" constant="1" id="o8A-in-iuL"/>
                                                         </constraints>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVF-Vz-X4c">
+                                                        <state key="normal" title="Direct Message">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="nfY-EG-Qih" kind="presentation" identifier="SeugeToComposeDirectMessage" id="vXp-y2-WFz"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>

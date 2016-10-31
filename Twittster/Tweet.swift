@@ -18,6 +18,8 @@ class Tweet: NSObject {
     
     var created_atLocalFormate:String!
     
+    var minFromNow:String!
+    
     var text:String!
     
     var retweeted:Bool!
@@ -54,7 +56,15 @@ class Tweet: NSObject {
         let dateFormatter = AppDelegate.sharedTwitterDateFormatter
         if let date = dateFormatter.date(from: self.created_at) {
             self.created_atLocalFormate = AppDelegate.sharedLocalDateFormatter.string(from: date)
+            
+            var diffDate = NSCalendar.current.dateComponents([.hour, .minute], from: date, to: Date())
+            print(diffDate)
+            self.minFromNow = String(describing: diffDate.minute!)
         }
+        
+        
+        
+        
         self.text = newJson["text"] as! String
         
         self.retweeted = newJson["retweeted"] as! Bool

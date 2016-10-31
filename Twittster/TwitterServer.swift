@@ -196,8 +196,8 @@ class TwitterServer: NSObject {
     
     
     // MARK: - POST Direct Message
-    public func postDirectMessageTo(reciever:TwittsterUser, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
-        let screenName = NSMutableString(string: reciever.screenName)
+    public func postDirectMessageTo(receiver:TwittsterUser, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+        let screenName = NSMutableString(string: receiver.screenName)
         screenName.deleteCharacters(in: NSRange(location: 0,length: 1))
         
         let parameter = ["screen_name":screenName, "text":text] as NSDictionary
@@ -214,14 +214,15 @@ class TwitterServer: NSObject {
     }
     
     // MARK: - POST Direct Message
-    public func postReplyMessageTo(replyToTweet:Tweet, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
-        let parameter = ["text":text,
+    public func postReplyMessageTo(replyToTweet:Tweet, withText text:String, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
+        let parameter = ["status":text,
                          "in_reply_to_status_id":replyToTweet.id.stringValue] as NSDictionary
         
         self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
             
             print(response)
-            success(response)
+            let updatedTweet = Tweet(withJson: response as! [String : Any])
+            success(updatedTweet)
             
         }) { (error:Error?) in
             print(error?.localizedDescription)

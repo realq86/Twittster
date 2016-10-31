@@ -46,10 +46,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func callAPI(success: @escaping ()->()) {
         
+        weak var weakSelf = self
+        
         server.getTimeline(success: { (response:[Tweet]) in
             
-            self.tweetsArray = TwitterServer.sharedInstance.timeline
-            self.updateTableView()
+            weakSelf?.tweetsArray = TwitterServer.sharedInstance.timeline
+            weakSelf?.updateTableView()
             success()
         }) { (error:Error?) in
                 
@@ -67,6 +69,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             refreshControl.endRefreshing()
         }
     }
+    
+    
+    // MARK: - TableView Methods
     
     func updateTableView() {
         
@@ -98,6 +103,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.tweet = tweet
         cell.delegate = self
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    
     }
     
     

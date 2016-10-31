@@ -103,11 +103,12 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func touchOnRetweet(_ sender: UIButton) {
+        weak var weakSelf = self
         TwitterServer.sharedInstance.postRetweet(
             tweet: self.tweet,
             success: { (tweet:Tweet) in
-                self.tweet = tweet
-                self.refreshViewAndUpdateServerModel(with: self.tweet)
+                weakSelf?.tweet = tweet
+                weakSelf?.refreshViewAndUpdateServerModel(with: self.tweet)
             },
             failure: { (error:Error?) in
         })
@@ -119,18 +120,18 @@ class DetailViewController: UIViewController {
 
         //Toggle the selected state, also means isSelected is the user's chocie
         sender.isSelected = !sender.isSelected
-        
+        weak var weakSelf = self
         if sender.isSelected == true {
 
             TwitterServer.sharedInstance.postFavoriteCreate(
                 toTweetID: self.tweet.id,
                 success: { (response:Tweet) in
-                    self.tweet = response
-                    self.refreshViewAndUpdateServerModel(with: self.tweet)
+                    weakSelf?.tweet = response
+                    weakSelf?.refreshViewAndUpdateServerModel(with: self.tweet)
                 },
                 failure: { (error:Error?) in
                     sender.isSelected = false
-                    self.setupViews(with: self.tweet)
+                    weakSelf?.setupViews(with: self.tweet)
             })
         }
         else {
@@ -138,12 +139,12 @@ class DetailViewController: UIViewController {
             TwitterServer.sharedInstance.postFavoriteDestroy(
                 toTweetID: self.tweet.id,
                 success: { (response:Tweet) in
-                    self.tweet = response
-                    self.refreshViewAndUpdateServerModel(with: self.tweet)
+                    weakSelf?.tweet = response
+                    weakSelf?.refreshViewAndUpdateServerModel(with: self.tweet)
                 },
                 failure: { (error:Error?) in
                     sender.isSelected = true
-                    self.setupViews(with: self.tweet)
+                    weakSelf?.setupViews(with: self.tweet)
             })
         }
     }
@@ -162,6 +163,13 @@ class DetailViewController: UIViewController {
             let composeVC = naviVC.viewControllers[0] as! ComposeViewController
             
             composeVC.replyToTweet = self.tweet
+        }
+        
+        if segue.identifier == "SeugeToComposeDirectMessage" {
+            let naviVC = segue.destination as! UINavigationController
+            let composeVC = naviVC.viewControllers[0] as! ComposeViewController
+            
+            composeVC.receiver = self.tweet.user
         }
         
     }

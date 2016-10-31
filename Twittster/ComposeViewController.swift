@@ -18,7 +18,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     
-    var reciever:TwittsterUser?
+    @IBOutlet weak var tweetButton: UIBarButtonItem!
+    var receiver:TwittsterUser?
     
     var replyToTweet:Tweet?
     
@@ -51,9 +52,14 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     
     func setupTextViewPlaceHolder() {
-        if self.replyToTweet != nil {
+        if let replyToTweet = self.replyToTweet {
             
-            self.textView.text = replyToTweet?.user.screenName
+            self.textView.text = (replyToTweet.user.screenName)! + " "
+        }
+        
+        if let receiver = self.receiver {
+//            self.textView.text = receiver.screenName + " "
+            self.tweetButton.title = "Message"
         }
     }
     
@@ -62,11 +68,16 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         if let tweetString = self.textView.text {
         
             
-            if replyToTweet == nil {
-                self.tweetMessage(tweetString)
+            if replyToTweet != nil {
+                self.sendReplyMessage(tweetString)
+
+            }
+            else if receiver != nil {
+                self.directMessage(receiver: self.receiver!, message: self.textView.text)
             }
             else {
-                self.sendReplyMessage(tweetString)
+                self.tweetMessage(tweetString)
+
             }
         }
     }
@@ -74,15 +85,15 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     func tweetMessage(_ message:String) {
         let server = TwitterServer.sharedInstance
+        
+        weak var weakself = self
         server.postTweet(
             withText: message,
             success: { (newTweet:Tweet) in
                 
-                let server = TwitterServer.sharedInstance
                 server.addNewTweet(tweet: newTweet)
-                self.finishedCompsing()
-                
                 print("Tweet sent!!!")
+                weakself?.finishedCompsing()
             },
             failure: { (error:Error?) in
                 print(error?.localizedDescription)
@@ -91,18 +102,38 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     func sendReplyMessage(_ message:String) {
         let server = TwitterServer.sharedInstance
+        
+        weak var weakself = self
         server.postReplyMessageTo(
             replyToTweet: replyToTweet!,
             withText: message,
-            success: { (response:Any) in
+            success: { (newTweet:Tweet) in
                 
-                self.finishedCompsing()
-                
-                print("Message sent!!!")
+                server.addNewTweet(tweet: newTweet)
+                print("Reply sent!!!")
+                weakself?.finishedCompsing()
             },
             failure: { (error:Error?) in
                 print(error?.localizedDescription)
         })
+    }
+    
+    func directMessage(receiver:TwittsterUser, message:String) {
+        let server = TwitterServer.sharedInstance
+        
+        weak var weakself = self
+        server.postDirectMessageTo(
+            receiver:receiver,
+            withText: message,
+            success: { (response:Any) in
+                
+                print("Direct Message sent!!!")
+                weakself?.finishedCompsing()
+            },
+            failure: { (error:Error?) in
+                print(error?.localizedDescription)
+        })
+
     }
     
     @IBAction func touchOnCancel(_ sender: AnyObject) {

@@ -26,6 +26,7 @@ class MainTweetCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     
+    @IBOutlet weak var minFromNow: UILabel!
     
     weak var delegate:MainTweetCellDelegate?
     
@@ -56,6 +57,8 @@ class MainTweetCell: UITableViewCell {
         
             //Buttons
             self.starButton.isSelected = tweet!.favorited
+            
+            self.minFromNow.text = tweet!.minFromNow + "m ago"
             
         }
     }
