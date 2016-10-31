@@ -135,6 +135,9 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2D-RP-6J9">
                                                                     <state key="normal" image="reply"/>
+                                                                    <connections>
+                                                                        <action selector="touchOnReply:" destination="8bA-qD-ZX6" eventType="touchUpInside" id="ngn-8g-UhS"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5w-fe-2WM">
                                                                     <state key="normal" image="retweet"/>

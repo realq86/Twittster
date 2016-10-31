@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol MainTweetCellDelegate {
+    @objc optional func userDidClickDirectMessage(tweetOfReceiver:Tweet)
+}
+
 class MainTweetCell: UITableViewCell {
 
     
@@ -23,6 +27,7 @@ class MainTweetCell: UITableViewCell {
     @IBOutlet weak var replyButton: UIButton!
     
     
+    weak var delegate:MainTweetCellDelegate?
     
     var retweetBy:Tweet?
     
@@ -77,6 +82,12 @@ class MainTweetCell: UITableViewCell {
         let notificationName = Notification.Name(kRetweetedNotificationName)
         NotificationCenter.default.post(name: notificationName, object: self)
     }
+    
+    
+    @IBAction func touchOnReply(_ sender: UIButton) {
+        self.delegate?.userDidClickDirectMessage!(tweetOfReceiver: self.tweet)
+    }
+    
     
     @IBAction func onTouchRetweet(_ sender: UIButton) {
         TwitterServer.sharedInstance.postRetweet(

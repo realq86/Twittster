@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MainTweetCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -86,14 +86,22 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tweet = self.tableViewDataBackArray[indexPath.row]
         
         cell.tweet = tweet
-        
+        cell.delegate = self
         return cell
     }
     
     
     
      // MARK: - Navigation
-     
+    
+//    func userDidClickDirectMessage(directMessageToTweet: Tweet) {
+//        self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: directMessageToTweet)
+//    }
+    
+    func userDidClickDirectMessage(tweetOfReceiver: Tweet) {
+        self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: tweetOfReceiver)
+    }
+    
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
@@ -110,11 +118,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
         }
         
-//        if segue.identifier == "SegueToComposeNaviVC" {
-//            
-//            let naviVC = segue.destination as! UINavigationController
-//            let composeVC = naviVC.viewControllers[0] as! ComposeViewController
-//        }
+        if segue.identifier == "SegueToComposeNaviVC" {
+            
+            let naviVC = segue.destination as! UINavigationController
+            let composeVC = naviVC.viewControllers[0] as! ComposeViewController
+            composeVC.reciever = (sender as! Tweet).user
+        }
 
         
         
