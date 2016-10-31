@@ -18,7 +18,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     
-    var reciever:TwittsterUser!
+    var reciever:TwittsterUser?
+    
+    var replyToTweet:Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,31 +45,37 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         self.profileNameLabel.text = currentUser?.name
         self.screenNameLabel.text = currentUser?.screenName
+        
+        self.setupTextViewPlaceHolder()
     }
     
+    
+    func setupTextViewPlaceHolder() {
+        if self.replyToTweet != nil {
+            
+            self.textView.text = replyToTweet?.user.screenName
+        }
+    }
     
     @IBAction func touchOnTweet(_ sender: AnyObject) {
         
         if let tweetString = self.textView.text {
         
-            if let tweetURLEncoded = tweetString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-                
-                if reciever == nil {
-                    self.tweetMessage(tweetString)
-                }
-                else {
-                    self.sendDirectMessage(tweetString)
-                }
+            
+            if replyToTweet == nil {
+                self.tweetMessage(tweetString)
+            }
+            else {
+                self.sendReplyMessage(tweetString)
             }
         }
-        
     }
     
     
-    func tweetMessage(_ tweetURLEncoded:String) {
+    func tweetMessage(_ message:String) {
         let server = TwitterServer.sharedInstance
         server.postTweet(
-            withText: tweetURLEncoded,
+            withText: message,
             success: { (newTweet:Tweet) in
                 
                 let server = TwitterServer.sharedInstance
@@ -81,11 +89,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         })
     }
     
-    func sendDirectMessage(_ tweetURLEncoded:String) {
+    func sendReplyMessage(_ message:String) {
         let server = TwitterServer.sharedInstance
-        server.postDirectMessageTo(
-            reciever: reciever,
-            withText: tweetURLEncoded,
+        server.postReplyMessageTo(
+            replyToTweet: replyToTweet!,
+            withText: message,
             success: { (response:Any) in
                 
                 self.finishedCompsing()

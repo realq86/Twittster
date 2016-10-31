@@ -108,7 +108,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: directMessageToTweet)
 //    }
     
-    func userDidClickDirectMessage(tweetOfReceiver: Tweet) {
+    func userDidClickReplyMessage(tweetOfReceiver: Tweet) {
         self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: tweetOfReceiver)
     }
     
@@ -133,7 +133,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let naviVC = segue.destination as! UINavigationController
             let composeVC = naviVC.viewControllers[0] as! ComposeViewController
             if let receiverTweet = sender as? Tweet {
-                composeVC.reciever = receiverTweet.user
+                composeVC.replyToTweet = receiverTweet
             }
         }
 

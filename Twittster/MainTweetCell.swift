@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol MainTweetCellDelegate {
-    @objc optional func userDidClickDirectMessage(tweetOfReceiver:Tweet)
+    @objc optional func userDidClickReplyMessage(tweetOfReceiver:Tweet)
 }
 
 class MainTweetCell: UITableViewCell {
@@ -40,7 +40,7 @@ class MainTweetCell: UITableViewCell {
                 self.retweetPanel.isHidden = false
                 
                 self.retweetBy = retweetedBy
-                self.retweetScreenName.text = "@" + (self.retweetBy?.user.name)!
+                self.retweetScreenName.text = "@" + (self.retweetBy?.user.screenName)!
             }
             
             
@@ -85,7 +85,7 @@ class MainTweetCell: UITableViewCell {
     
     
     @IBAction func touchOnReply(_ sender: UIButton) {
-        self.delegate?.userDidClickDirectMessage!(tweetOfReceiver: self.tweet)
+        self.delegate?.userDidClickReplyMessage!(tweetOfReceiver: self.tweet)
     }
     
     

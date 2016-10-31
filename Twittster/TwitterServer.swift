@@ -213,6 +213,22 @@ class TwitterServer: NSObject {
         }
     }
     
+    // MARK: - POST Direct Message
+    public func postReplyMessageTo(replyToTweet:Tweet, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+        let parameter = ["text":text,
+                         "in_reply_to_status_id":replyToTweet.id.stringValue] as NSDictionary
+        
+        self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
+            
+            print(response)
+            success(response)
+            
+        }) { (error:Error?) in
+            print(error?.localizedDescription)
+            failure(error)
+        }
+    }
+    
     // MARK: - POST Tweet Message
     public func postTweet(withText text:String, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
 

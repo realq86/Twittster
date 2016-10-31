@@ -161,7 +161,7 @@ class DetailViewController: UIViewController {
             let naviVC = segue.destination as! UINavigationController
             let composeVC = naviVC.viewControllers[0] as! ComposeViewController
             
-            composeVC.reciever = self.tweet.user
+            composeVC.replyToTweet = self.tweet
         }
         
     }
