@@ -28,6 +28,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.updateTableView()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,7 +43,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         server.getTimeline(success: { (response:[Tweet]) in
             
-            self.tweetsArray = response
+            self.tweetsArray = TwitterServer.sharedInstance.timeline
             self.updateTableView()
             
         }) { (error:Error?) in
@@ -47,7 +53,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateTableView() {
         
-        if let tweetsArray = self.tweetsArray {
+        if let tweetsArray = TwitterServer.sharedInstance.timeline {
             self.tableViewDataBackArray = tweetsArray
         }
         self.tableView.reloadData()
