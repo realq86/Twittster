@@ -68,8 +68,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         let server = TwitterServer.sharedInstance
         server.postTweet(
             withText: tweetURLEncoded,
-            success: { (response:Any) in
+            success: { (newTweet:Tweet) in
                 
+                let server = TwitterServer.sharedInstance
+                server.addNewTweet(tweet: newTweet)
                 self.finishedCompsing()
                 
                 print("Tweet sent!!!")
@@ -100,7 +102,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
 
     func finishedCompsing() {
-        
         self.dismiss(animated: true) { 
             
         }

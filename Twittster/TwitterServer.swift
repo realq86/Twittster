@@ -214,14 +214,15 @@ class TwitterServer: NSObject {
     }
     
     // MARK: - POST Tweet Message
-    public func postTweet(withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
+    public func postTweet(withText text:String, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
 
         let parameter = ["status":text] as NSDictionary
         
         self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
             
+            let newTweet = Tweet(withJson: response as! [String : Any])
             print(response)
-            success(response)
+            success(newTweet)
             
         }) { (error:Error?) in
             print(error?.localizedDescription)
@@ -232,6 +233,10 @@ class TwitterServer: NSObject {
     
     // MARK: - Local timeline entry and search
 
+    func addNewTweet(tweet:Tweet) {
+        self.timeline?.insert(tweet, at: 0)
+    }
+    
     func find(tweet:Tweet)->Tweet {
         return self.find(tweet: tweet, inModel: self.timeline!)
     }

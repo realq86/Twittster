@@ -21,10 +21,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.setupTableView()
-        // Do any additional setup after loading the view.
+        self.setupRefreshControl()
         
-        self.callAPI {
-            
+        self.callAPI { 
         }
         
         let notificationName = Notification.Name(kRetweetedNotificationName)
@@ -32,7 +31,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             self.updateTableView()
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,15 +44,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    private func callAPI(_: ()->()) {
+    private func callAPI(success: @escaping ()->()) {
         
         server.getTimeline(success: { (response:[Tweet]) in
             
             self.tweetsArray = TwitterServer.sharedInstance.timeline
             self.updateTableView()
-            
+            success()
         }) { (error:Error?) in
                 
+        }
+    }
+    
+    func setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        self.callAPI {
+            refreshControl.endRefreshing()
         }
     }
     
@@ -122,7 +132,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let naviVC = segue.destination as! UINavigationController
             let composeVC = naviVC.viewControllers[0] as! ComposeViewController
-            composeVC.reciever = (sender as! Tweet).user
+            if let receiverTweet = sender as? Tweet {
+                composeVC.reciever = receiverTweet.user
+            }
         }
 
         
