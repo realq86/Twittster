@@ -95,8 +95,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             detailVC.tweet = server.timeline?.first(where: { (eachTweet) -> Bool in
                 return eachTweet.id.intValue == chosenTweetID?.intValue
             })
-//            print("chosen tweet\(chosenTweetID)")
-//            print("found tweet \(detailVC.tweet)")
+
         }
         
         

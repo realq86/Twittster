@@ -26,7 +26,7 @@ class MainTweetCell: UITableViewCell {
     
     var retweetBy:Tweet?
     
-    var tweet:Tweet? {
+    var tweet:Tweet! {
 
         didSet {
             self.retweetPanel.isHidden = true
@@ -70,6 +70,44 @@ class MainTweetCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func refreshViewAndUpdateServerModel(with tweet:Tweet) {
+        let server = TwitterServer.sharedInstance
+        server.updateTweetInModel(withTweet: self.tweet)
+    }
+    
+    @IBAction func touchOnStar(_ sender: UIButton) {
+        
+        //Toggle the selected state, also means isSelected is the user's chocie
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected == true {
+            
+            TwitterServer.sharedInstance.postFavoriteCreate(
+                toTweetID: self.tweet.id,
+                success: { (response:Tweet) in
+                    self.tweet = response
+                    self.refreshViewAndUpdateServerModel(with: self.tweet)
+                },
+                failure: { (error:Error?) in
+                    sender.isSelected = false
+            })
+        }
+        else {
+            
+            TwitterServer.sharedInstance.postFavoriteDestroy(
+                toTweetID: self.tweet.id,
+                success: { (response:Tweet) in
+                    self.tweet = response
+                    self.refreshViewAndUpdateServerModel(with: self.tweet)
+                },
+                failure: { (error:Error?) in
+                    sender.isSelected = true
+                    
+            })
+        }
+        
+        
+    }
     
     
     

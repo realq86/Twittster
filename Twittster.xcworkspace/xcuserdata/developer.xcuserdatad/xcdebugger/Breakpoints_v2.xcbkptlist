@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499562109.713292"
+            timestampString = "499568559.02174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "touchOnStar(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499562109.713292"
+            timestampString = "499568559.02174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "touchOnStar(_:)"
             landmarkType = "7">
          </BreakpointContent>

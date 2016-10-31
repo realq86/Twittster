@@ -142,6 +142,9 @@
                                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASn-QF-Mt1">
                                                                     <state key="normal" image="starGrey"/>
                                                                     <state key="selected" image="starGold"/>
+                                                                    <connections>
+                                                                        <action selector="touchOnStar:" destination="8bA-qD-ZX6" eventType="touchUpInside" id="jsL-CC-45L"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
