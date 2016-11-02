@@ -22,6 +22,7 @@
 		8BACBF251DC2ABFC0089CB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BACBF231DC2ABFC0089CB59 /* LaunchScreen.storyboard */; };
 		8BACBF301DC2ABFC0089CB59 /* TwittsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACBF2F1DC2ABFC0089CB59 /* TwittsterTests.swift */; };
 		8BACBF3B1DC2ABFC0089CB59 /* TwittsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACBF3A1DC2ABFC0089CB59 /* TwittsterUITests.swift */; };
+		8BB1E5281DCA9AAB0092BEC9 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB1E5271DCA9AAB0092BEC9 /* HamburgerViewController.swift */; };
 		8BCA546A1DC71EE3001DD7F0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA54691DC71EE3001DD7F0 /* LoginVC.swift */; };
 		8BD8683A1DC6EE9F001BCD99 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD868391DC6EE9F001BCD99 /* ComposeViewController.swift */; };
 		8BFDA0971DC553E500FACA24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDA0961DC553E500FACA24 /* DetailViewController.swift */; };
@@ -77,6 +78,7 @@
 		8BACBF361DC2ABFC0089CB59 /* TwittsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwittsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BACBF3A1DC2ABFC0089CB59 /* TwittsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwittsterUITests.swift; sourceTree = "<group>"; };
 		8BACBF3C1DC2ABFC0089CB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BB1E5271DCA9AAB0092BEC9 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		8BCA54691DC71EE3001DD7F0 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8BD868391DC6EE9F001BCD99 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		8BFDA0961DC553E500FACA24 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				8BACBF261DC2ABFC0089CB59 /* Info.plist */,
 				8BACBF231DC2ABFC0089CB59 /* LaunchScreen.storyboard */,
 				8BACBF211DC2ABFC0089CB59 /* Assets.xcassets */,
+				8BB1E5291DCA9AB10092BEC9 /* Hamburger View Controller */,
 			);
 			path = Twittster;
 			sourceTree = "<group>";
@@ -226,6 +229,14 @@
 				8BACBF3C1DC2ABFC0089CB59 /* Info.plist */,
 			);
 			path = TwittsterUITests;
+			sourceTree = "<group>";
+		};
+		8BB1E5291DCA9AB10092BEC9 /* Hamburger View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BB1E5271DCA9AAB0092BEC9 /* HamburgerViewController.swift */,
+			);
+			name = "Hamburger View Controller";
 			sourceTree = "<group>";
 		};
 		8BD8683B1DC6EEA4001BCD99 /* Compose View Controller */ = {
@@ -533,6 +544,7 @@
 			files = (
 				8BFDA0971DC553E500FACA24 /* DetailViewController.swift in Sources */,
 				8B8684391DC5238E003D1287 /* MainTweetCell.swift in Sources */,
+				8BB1E5281DCA9AAB0092BEC9 /* HamburgerViewController.swift in Sources */,
 				8BCA546A1DC71EE3001DD7F0 /* LoginVC.swift in Sources */,
 				8B6AF17B1DC307A9000C05CA /* TwitterServer.swift in Sources */,
 				8BD8683A1DC6EE9F001BCD99 /* ComposeViewController.swift in Sources */,
