@@ -10,19 +10,44 @@ import UIKit
 
 class HamburgerViewController: UIViewController {
 
-    
+    var contentVC:UIViewController! {
+        didSet {
+            if (oldValue != nil) {
+                oldValue.willMove(toParentViewController: nil)
+                oldValue.view.removeFromSuperview()
+                oldValue.removeFromParentViewController()
+            }
+            self.addChildViewController(contentVC)
+            contentVC.willMove(toParentViewController: self)
+            contentView.addSubview(contentVC.view)
+            contentVC.didMove(toParentViewController: self)
+        }
+        
+    }
+
     @IBOutlet weak var contentView: UIView!
-    
-    @IBOutlet weak var manuView: UIView!
+    @IBOutlet weak var menuView: UIView!
     
     @IBOutlet weak var contentViewLeadingConstraint: NSLayoutConstraint!
     
     var contentViewPreviousMargin:CGFloat!
     
+    var menuVC:MenuViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            menuView.addSubview(menuVC.view)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Hamburger ViewWillAppear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,22 +82,7 @@ class HamburgerViewController: UIViewController {
         }
         
     }
-//    @IBAction func onEdgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
-//        
-//        let translation = sender.translation(in: view)
-//        let velocity = sender.velocity(in: view)
-//        
-//        if sender.state == .began {
-//             contentViewPreviousMargin = contentViewLeadingConstraint.constant
-//        }
-//        else if sender.state == .changed {
-//            contentViewLeadingConstraint.constant = contentViewPreviousMargin + translation.x
-//        }
-//        else if sender.state == .ended {
-//            
-//        }
-//        
-//    }
+
     
     
     
