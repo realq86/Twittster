@@ -58,7 +58,7 @@ class TwitterServer: NSObject {
     
     
     public func processOpenURL(url:URL) {
-        
+        print(url.query as Any)
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         
         weak var weakSelf = self
@@ -82,9 +82,9 @@ class TwitterServer: NSObject {
                 print("FetchAccessToken Fail \(error)")
                 weakSelf?.loginFailureHandler?()
         })
-        
-        
     }
+    
+    
     
     // MARK: Generic GET
     private func get(endPoint:String, success:@escaping (Any)->(), failure:@escaping (Error?)->()){

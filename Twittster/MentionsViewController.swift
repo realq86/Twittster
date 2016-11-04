@@ -22,6 +22,7 @@ class MentionsViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Mentions"
         // Do any additional setup after loading the view.
     }
 
