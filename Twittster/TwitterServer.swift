@@ -15,6 +15,7 @@ class TwitterServer: NSObject {
     let manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
     
     var timeline:[Tweet]?
+    var mentionsTimeline:[Tweet]?
     
     // MARK: - Login Methods
     var loginSuccessHandler:(()->())?
@@ -95,10 +96,7 @@ class TwitterServer: NSObject {
         })
     }
     
-
-    
-    
-    // MARK: - GET Profile
+    // MARK: GET Profile
     public func getCredentials(success: @escaping (TwittsterUser)->(), failure: @escaping (Error?)->()) {
         
         self.get(endPoint: kTwitterGETCredentials,
@@ -113,8 +111,7 @@ class TwitterServer: NSObject {
         }
     }
     
-    
-    // MARK: - GET Timeline
+    // MARK: GET Timeline
     public func getTimeline(success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
         self.get(endPoint: kTwitterGETTimeLine,
                 success: { (response:Any) in
@@ -130,7 +127,23 @@ class TwitterServer: NSObject {
         }
     }
     
-    // MARK: Generic POST
+    // MARK: GET Mentions
+    public func getMentions(success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
+        self.get(endPoint: kTwitterGETMentions,
+                 success: { (response:Any) in
+                    print("GET Mentions Response = \(response)")
+                    let responseDic = response as! [NSDictionary]
+                    let tweetsArray = Tweet.initTweetsWith(array: responseDic)
+                    self.mentionsTimeline = tweetsArray
+                    print(tweetsArray.description)
+                    success(tweetsArray)
+        }) { (error:Error?) in
+            print("GET Mentions Error = \(error?.localizedDescription)")
+            failure(error)
+        }
+    }
+    
+    // MARK: - Generic POST
     private func post(endPoint:String, parameters:Any?, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
         manager.post(endPoint, parameters: parameters, progress: nil,
                      success: { (task:URLSessionDataTask, response:Any?) in
@@ -143,7 +156,7 @@ class TwitterServer: NSObject {
         })
     }
     
-    // MARK: - POST Favorite Create
+    // MARK: POST Favorite Create
     public func postFavoriteCreate(toTweetID id:NSNumber, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
         let parameters:NSDictionary = ["id":id.stringValue] as NSDictionary
         
@@ -161,7 +174,7 @@ class TwitterServer: NSObject {
         }
     }
     
-    // MARK: - POST Favorite Destroy
+    // MARK: POST Favorite Destroy
     public func postFavoriteDestroy(toTweetID id:NSNumber, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
         let parameters:NSDictionary = ["id":id.stringValue] as NSDictionary
         
@@ -179,7 +192,7 @@ class TwitterServer: NSObject {
         }
     }
 
-    // MARK: - POST Retweet
+    // MARK: POST Retweet
     public func postRetweet(tweet:Tweet, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
         let urlString = urlStringToRetweet(tweet: tweet)
         self.post(endPoint:urlString, parameters:nil, success: { (response:Any) in
@@ -195,7 +208,7 @@ class TwitterServer: NSObject {
     }
     
     
-    // MARK: - POST Direct Message
+    // MARK: POST Direct Message
     public func postDirectMessageTo(receiver:TwittsterUser, withText text:String, success: @escaping (Any)->(), failure: @escaping (Error?)->()) {
         let screenName = NSMutableString(string: receiver.screenName)
         screenName.deleteCharacters(in: NSRange(location: 0,length: 1))
@@ -213,12 +226,12 @@ class TwitterServer: NSObject {
         }
     }
     
-    // MARK: - POST Direct Message
+    // MARK: POST Direct Message
     public func postReplyMessageTo(replyToTweet:Tweet, withText text:String, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
         let parameter = ["status":text,
                          "in_reply_to_status_id":replyToTweet.id.stringValue] as NSDictionary
         
-        self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
+        self.post(endPoint:kTwitterPOSTTweet, parameters:parameter, success: { (response:Any) in
             
             print(response)
             let updatedTweet = Tweet(withJson: response as! [String : Any])
@@ -230,12 +243,12 @@ class TwitterServer: NSObject {
         }
     }
     
-    // MARK: - POST Tweet Message
+    // MARK: POST Tweet Message
     public func postTweet(withText text:String, success: @escaping (Tweet)->(), failure: @escaping (Error?)->()) {
 
         let parameter = ["status":text] as NSDictionary
         
-        self.post(endPoint:kTweet, parameters:parameter, success: { (response:Any) in
+        self.post(endPoint:kTwitterPOSTTweet, parameters:parameter, success: { (response:Any) in
             
             let newTweet = Tweet(withJson: response as! [String : Any])
             print(response)

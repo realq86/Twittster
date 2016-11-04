@@ -54,8 +54,12 @@ func urlStringToRetweet(tweet:Tweet) -> String{
     return kTWitterPOSTRetweet
 }
 
-let kRetweetedNotificationName = "NotificationNameRetweeted"
-
 let kDirectMessage = "/1.1/direct_messages/new.json"
 
-let kTweet = "/1.1/statuses/update.json"
+let kTwitterPOSTTweet = "/1.1/statuses/update.json"
+
+let kTwitterGETMentions = "/1.1/statuses/mentions_timeline.json"
+
+let kRetweetedNotificationName = "NotificationNameRetweeted"
+
+
