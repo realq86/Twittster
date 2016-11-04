@@ -17,13 +17,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let server = TwitterServer.sharedInstance
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupTableView()
         self.setupRefreshControl()
         
-        self.callAPI { 
+        weak var weakSelf = self
+        self.callAPI {
+            weakSelf?.updateTableView()
         }
         
         let notificationName = Notification.Name(kRetweetedNotificationName)
@@ -44,17 +47,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    private func callAPI(success: @escaping ()->()) {
+    public func callAPI(success: @escaping ()->()) {
         
         weak var weakSelf = self
-        
         server.getTimeline(success: { (response:[Tweet]) in
-            
-            weakSelf?.tweetsArray = TwitterServer.sharedInstance.timeline
-            weakSelf?.updateTableView()
             success()
         }) { (error:Error?) in
-                
         }
     }
     
@@ -65,8 +63,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        weak var weakSelf = self
         self.callAPI {
             refreshControl.endRefreshing()
+            weakSelf?.updateTableView()
         }
     }
     
