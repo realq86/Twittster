@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     public func callAPI(success: @escaping ()->()) {
         
-        weak var weakSelf = self
+//        weak var weakSelf = self
         server.getTimeline(success: { (response:[Tweet]) in
             success()
         }) { (error:Error?) in

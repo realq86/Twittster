@@ -474,7 +474,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499990398.170576"
+                  timestampString = "499995110.602612"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
@@ -489,7 +489,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499990398.172097"
+                  timestampString = "499995110.603956"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "220"
@@ -570,7 +570,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499990398.182383"
+                  timestampString = "499995110.613947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "234"
@@ -585,7 +585,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499990398.183683"
+                  timestampString = "499995110.615274"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "236"
@@ -630,23 +630,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Twittster/DetailViewController.swift"
-            timestampString = "499990396.995146"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "setupViews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MainViewController.swift"
@@ -662,7 +646,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MainViewController.swift"
@@ -675,14 +659,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Twittster.MainViewController.prepare (for : __ObjC.UIStoryboardSegue, sender : Swift.Optional&lt;Any&gt;) -&gt; ()"
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/MainViewController.swift"
-                  timestampString = "499990398.191969"
+                  timestampString = "499993951.487666"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "141"
@@ -690,14 +674,14 @@
                   offsetFromSymbolStart = "1046">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Twittster.MainViewController.(prepare (for : __ObjC.UIStoryboardSegue, sender : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/MainViewController.swift"
-                  timestampString = "499990398.193356"
+                  timestampString = "499993951.489918"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "142"
@@ -710,7 +694,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MainViewController.swift"
@@ -726,7 +710,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MainViewController.swift"
@@ -758,7 +742,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MentionsViewController.swift"
@@ -774,7 +758,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/MentionsViewController.swift"
@@ -822,7 +806,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/TwitterServer.swift"
@@ -838,7 +822,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/TwitterServer.swift"
