@@ -25,9 +25,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID")
         tableViewDataBackArray.append(timelineVC)
-        let redVC = storyboard.instantiateViewController(withIdentifier: "RedViewController")
-        tableViewDataBackArray.append(redVC)
-        hamburgerVC.contentVC = redVC
+    
+        let mentionsVC = MentionsViewController.instantiate()
+        let mentionsNaviVC = UINavigationController(rootViewController: mentionsVC)
+            
+        
+        tableViewDataBackArray.append(mentionsNaviVC)
+        hamburgerVC.contentVC = mentionsNaviVC
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,8 +71,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             hamburgerVC.contentVC = timelineNaviVC
         }
         else if indexPath.row == 1 {
-            let redVC = tableViewDataBackArray[indexPath.row] as! RedViewController
-            hamburgerVC.contentVC = redVC
+            let mentionsVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
+            hamburgerVC.contentVC = mentionsVC
         }
     }
     
