@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E740FD4DCB9EEEAF76A1359 /* Pods_TwittsterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A7C3DA684EE45F6544CE17 /* Pods_TwittsterTests.framework */; };
+		8B09C2AD1DCC352100B73FB8 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09C2AC1DCC352100B73FB8 /* MentionsViewController.swift */; };
 		8B639D661DCBC43F008FA772 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B639D651DCBC43F008FA772 /* BlueViewController.swift */; };
 		8B639D681DCBC457008FA772 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B639D671DCBC457008FA772 /* RedViewController.swift */; };
 		8B6AF1791DC2B39C000C05CA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AF1781DC2B39C000C05CA /* Constant.swift */; };
@@ -58,6 +59,7 @@
 		5A28469BD54875E955486CF9 /* Pods_Twittster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twittster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EEEDCE23F5FA5BD9BED0C41 /* Pods-TwittsterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwittsterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwittsterTests/Pods-TwittsterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		77A7C3DA684EE45F6544CE17 /* Pods_TwittsterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwittsterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B09C2AC1DCC352100B73FB8 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
 		8B639D651DCBC43F008FA772 /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		8B639D671DCBC457008FA772 /* RedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		8B6AF1781DC2B39C000C05CA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -146,13 +148,14 @@
 			name = "Login View Controller";
 			sourceTree = "<group>";
 		};
-		8B6AF1801DC32119000C05CA /* Main View Controller */ = {
+		8B6AF1801DC32119000C05CA /* Main & Mentions View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				8B6AF17E1DC32110000C05CA /* MainViewController.swift */,
+				8B09C2AC1DCC352100B73FB8 /* MentionsViewController.swift */,
 				8B86843A1DC52399003D1287 /* Cell */,
 			);
-			name = "Main View Controller";
+			name = "Main & Mentions View Controller";
 			sourceTree = "<group>";
 		};
 		8B6AF1831DC4120D000C05CA /* Model */ = {
@@ -162,8 +165,8 @@
 				8B6AF1851DC41289000C05CA /* TweetSample.h */,
 				8B6AF1861DC41289000C05CA /* TweetSample.m */,
 				8B6AF1841DC41289000C05CA /* Twittster-Bridging-Header.h */,
-				8B6AF1891DC41447000C05CA /* TwittsterUser.swift */,
 				8B6AF18B1DC41592000C05CA /* TweetEntities.swift */,
+				8B6AF1891DC41447000C05CA /* TwittsterUser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,7 +209,7 @@
 				8B6AF1781DC2B39C000C05CA /* Constant.swift */,
 				8BACBF1A1DC2ABFC0089CB59 /* AppDelegate.swift */,
 				8B6AF1831DC4120D000C05CA /* Model */,
-				8B6AF1801DC32119000C05CA /* Main View Controller */,
+				8B6AF1801DC32119000C05CA /* Main & Mentions View Controller */,
 				8B6AF17D1DC30A1E000C05CA /* Login View Controller */,
 				8BFDA0981DC553F500FACA24 /* Detail View Controller */,
 				8B6AF17C1DC30A14000C05CA /* TwitterServer */,
@@ -562,6 +565,7 @@
 				8BFDA0971DC553E500FACA24 /* DetailViewController.swift in Sources */,
 				8B8684391DC5238E003D1287 /* MainTweetCell.swift in Sources */,
 				8BB1E5281DCA9AAB0092BEC9 /* HamburgerViewController.swift in Sources */,
+				8B09C2AD1DCC352100B73FB8 /* MentionsViewController.swift in Sources */,
 				8BC6E1F51DCAAE09002E2ACF /* MenuViewController.swift in Sources */,
 				8BCA546A1DC71EE3001DD7F0 /* LoginVC.swift in Sources */,
 				8B6AF17B1DC307A9000C05CA /* TwitterServer.swift in Sources */,
