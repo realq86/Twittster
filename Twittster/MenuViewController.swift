@@ -68,16 +68,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if indexPath.row == 0 {
             let timelineNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
-            
-            let timelineVC = timelineNaviVC.viewControllers[0] as! MainViewController
-//            timelineVC.tableView.isUserInteractionEnabled = false
-            
-            
             hamburgerVC.contentVC = timelineNaviVC
         }
         else if indexPath.row == 1 {
-            let mentionsVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
-            hamburgerVC.contentVC = mentionsVC
+            let mentionsNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
+            hamburgerVC.contentVC = mentionsNaviVC
         }
     }
     
