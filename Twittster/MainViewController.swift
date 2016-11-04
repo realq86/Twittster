@@ -16,13 +16,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tableViewDataBackArray = [Tweet]()
     
     let server = TwitterServer.sharedInstance
-    
+    var timelineOrMentions:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Timeline"
-        
+        self.timelineOrMentions = "Timeline"
         self.setupTableView()
         self.setupRefreshControl()
         
@@ -104,6 +104,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tweet = self.tableViewDataBackArray[indexPath.row]
         
         cell.tweet = tweet
+        cell.timelineOrMentions = self.timelineOrMentions
         cell.delegate = self
         return cell
     }
@@ -140,6 +141,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             detailVC.tweet = server.timeline?.first(where: { (eachTweet) -> Bool in
                 return eachTweet.id.intValue == chosenTweetID?.intValue
             })
+            detailVC.timelineOrMentions = "Timeline"
+
         }
         
         if segue.identifier == "SegueToComposeNaviVC" {

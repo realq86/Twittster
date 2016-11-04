@@ -23,6 +23,7 @@ class MentionsViewController: MainViewController {
         super.viewDidLoad()
 
         self.title = "Mentions"
+        self.timelineOrMentions = "Mentions"
         // Do any additional setup after loading the view.
     }
 
@@ -33,7 +34,7 @@ class MentionsViewController: MainViewController {
     
     override func callAPI(success: @escaping () -> ()) {
         
-        weak var weakSelf = self
+//        weak var weakSelf = self
         server.getMentions(
             success: { (response) in
                 success()
@@ -48,15 +49,35 @@ class MentionsViewController: MainViewController {
         }
         self.tableView.reloadData()
     }
+    
 
-    /*
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "SegueToDetailViewController" {
+            
+            let cell = sender as! MainTweetCell
+            let detailVC = segue.destination as! DetailViewController
+            
+            let chosenTweetID = self.tableViewDataBackArray[cell.tag].id
+            detailVC.tweet = server.mentionsTimeline?.first(where: { (eachTweet) -> Bool in
+                return eachTweet.id.intValue == chosenTweetID?.intValue
+            })
+            detailVC.timelineOrMentions = "Mentions"
+        }
+        else {
+            super.prepare(for: segue, sender: sender)
+        }
+        
+ 
+        
     }
-    */
+ 
 
 }

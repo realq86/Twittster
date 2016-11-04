@@ -32,6 +32,8 @@ class MainTweetCell: UITableViewCell {
     
     var retweetBy:Tweet?
     
+    var timelineOrMentions:String!
+    
     var tweet:Tweet! {
 
         didSet {
@@ -80,7 +82,14 @@ class MainTweetCell: UITableViewCell {
     
     func refreshViewAndUpdateServerModel(with tweet:Tweet) {
         let server = TwitterServer.sharedInstance
-        server.updateTweetInModel(withTweet: tweet)
+        
+        if timelineOrMentions == "Timeline" {
+            server.updateTweetInTimeline(withTweet: tweet)
+        }
+        else if timelineOrMentions == "Mentions" {
+            server.updateTweetInMentions(withTweet: tweet)
+        }
+//        server.updateTweetInModel(withTweet: tweet)
         
         let notificationName = Notification.Name(kRetweetedNotificationName)
         NotificationCenter.default.post(name: notificationName, object: self)

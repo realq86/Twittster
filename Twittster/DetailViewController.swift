@@ -42,6 +42,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     
+    var timelineOrMentions:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class DetailViewController: UIViewController {
     func setupViews() {
         
         //Sync up the tweet from the MainVC with the Server's Model
-        self.tweet = TwitterServer.sharedInstance.find(tweet: self.tweet)
+//        self.tweet = TwitterServer.sharedInstance.find(tweet: self.tweet)
         self.setupViews(with: self.tweet)
     }
     
@@ -97,7 +98,14 @@ class DetailViewController: UIViewController {
 
     func refreshViewAndUpdateServerModel(with tweet:Tweet) {
         let server = TwitterServer.sharedInstance
-        server.updateTweetInModel(withTweet: tweet)
+        
+        if timelineOrMentions == "Timeline" {
+            server.updateTweetInTimeline(withTweet: tweet)
+        }
+        else if timelineOrMentions == "Mentions" {
+            server.updateTweetInMentions(withTweet: tweet)
+        }
+        
         self.setupViews(with: tweet)
     }
     

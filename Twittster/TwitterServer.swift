@@ -297,11 +297,18 @@ class TwitterServer: NSObject {
         return index!
     }
     
-    func updateTweetInModel(withTweet tweet:Tweet) {
+    func updateTweetInTimeline(withTweet tweet:Tweet) {
         
         let index = self.findIndexOf(tweet: tweet, inModel: self.timeline!)
         self.timeline?[index] = tweet
     }
+    
+    func updateTweetInMentions(withTweet tweet:Tweet) {
+        
+        let index = self.findIndexOf(tweet: tweet, inModel: self.mentionsTimeline!)
+        self.mentionsTimeline?[index] = tweet
+    }
+
     
     
 }
