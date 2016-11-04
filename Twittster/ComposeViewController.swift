@@ -105,7 +105,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
                 weakself?.finishedCompsing()
             },
             failure: { (error:Error?) in
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
         })
     }
     
@@ -123,7 +123,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
                 weakself?.finishedCompsing()
             },
             failure: { (error:Error?) in
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
         })
     }
     
@@ -140,7 +140,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
                 weakself?.finishedCompsing()
             },
             failure: { (error:Error?) in
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
         })
 
     }

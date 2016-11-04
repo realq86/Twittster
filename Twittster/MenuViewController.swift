@@ -23,11 +23,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let blueVC = storyboard.instantiateViewController(withIdentifier: "BlueViewController")
-        tableViewDataBackArray.append(blueVC)
+        let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID")
+        tableViewDataBackArray.append(timelineVC)
         let redVC = storyboard.instantiateViewController(withIdentifier: "RedViewController")
         tableViewDataBackArray.append(redVC)
-        
+        hamburgerVC.contentVC = redVC
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,8 +63,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
-            let blueVC = tableViewDataBackArray[indexPath.row] as! BlueViewController
-            hamburgerVC.contentVC = blueVC
+            let timelineNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
+            hamburgerVC.contentVC = timelineNaviVC
         }
         else if indexPath.row == 1 {
             let redVC = tableViewDataBackArray[indexPath.row] as! RedViewController

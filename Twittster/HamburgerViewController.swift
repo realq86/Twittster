@@ -42,6 +42,11 @@ class HamburgerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuVC.hamburgerVC = self
+        
+        self.menuVC = menuVC
         // Do any additional setup after loading the view.
     }
     

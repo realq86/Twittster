@@ -570,7 +570,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499820704.230349"
+                  timestampString = "499907920.867769"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -585,7 +585,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499820704.23182"
+                  timestampString = "499907920.869209"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "207"
@@ -666,7 +666,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499820704.241835"
+                  timestampString = "499907920.882704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "221"
@@ -681,7 +681,7 @@
                   moduleName = "Twittster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Apps/Twittster/Twittster/TwitterServer.swift"
-                  timestampString = "499820704.243235"
+                  timestampString = "499907920.884143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "223"
@@ -730,12 +730,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/HamburgerViewController.swift"
-            timestampString = "499905231.513867"
+            timestampString = "499908668.136995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "onEdgePanGesture(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/AppDelegate.swift"
+            timestampString = "499907920.664064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/AppDelegate.swift"
+            timestampString = "499907829.153144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/MenuViewController.swift"
+            timestampString = "499907830.637613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/AppDelegate.swift"
+            timestampString = "499907855.826805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

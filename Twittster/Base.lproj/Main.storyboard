@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="e88-an-5yo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,12 +60,12 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Mec-kK-iZ1" id="y47-2F-mII"/>
-                        <segue destination="rlP-pV-soX" kind="presentation" identifier="SegueToHome" id="tK0-Vw-puh"/>
+                        <segue destination="e88-an-5yo" kind="presentation" identifier="SegueToHamburger" id="hOE-pQ-C67"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="139"/>
+            <point key="canvasLocation" x="-415" y="207"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Jnj-ip-JN2">
@@ -707,7 +707,7 @@
         <!--Hamburger View Controller-->
         <scene sceneID="EmU-hj-YgL">
             <objects>
-                <viewController id="e88-an-5yo" customClass="HamburgerViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HamburgerViewController" id="e88-an-5yo" customClass="HamburgerViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KBx-YC-J1W"/>
                         <viewControllerLayoutGuide type="bottom" id="keH-xU-rCh"/>
@@ -754,7 +754,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1462" y="1930"/>
+            <point key="canvasLocation" x="308" y="206"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="hcu-Ot-tXk">

@@ -40,7 +40,7 @@ class LoginVC: UIViewController {
         self.twitterClient.login(
             success: {
                 
-                self.performSegue(withIdentifier: "SegueToHome", sender: sender)
+                self.performSegue(withIdentifier: "SegueToHamburger", sender: sender)
                 
             },failure: {
         })

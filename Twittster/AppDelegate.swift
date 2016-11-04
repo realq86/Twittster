@@ -34,37 +34,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let hamburgerVC = window!.rootViewController as! HamburgerViewController
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-        
-        hamburgerVC.menuVC = menuVC
-        
-        menuVC.hamburgerVC = hamburgerVC
-        
-        
-        
-        
-//        if TwittsterUser.currentUser != nil {
-//            print("Current User Found")
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let naviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
-//            window?.rootViewController = naviVC
-//        }
-//        else {
-//            print("Current User Not Found")
-//        }
+//        let hamburgerVC = window!.rootViewController as! HamburgerViewController
 //        
-//        weak var weakSelf = self
-//        let notificationName = Notification.Name(kUserLogoutNotificationName)
-//        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification:Notification) in
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateInitialViewController()
-//            weakSelf?.window?.rootViewController = vc
-//        }
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+//        menuVC.hamburgerVC = hamburgerVC
+//
+//        hamburgerVC.menuVC = menuVC
+        
+        
+        
+        
+        
+        if TwittsterUser.currentUser != nil {
+            print("Current User Found")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+            window?.rootViewController = hamburgerVC
+        }
+        else {
+            print("Current User Not Found")
+        }
+        
+        weak var weakSelf = self
+        let notificationName = Notification.Name(kUserLogoutNotificationName)
+        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification:Notification) in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            weakSelf?.window?.rootViewController = vc
+        }
         
         return true
     }

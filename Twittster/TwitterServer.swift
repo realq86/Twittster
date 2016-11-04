@@ -89,7 +89,7 @@ class TwitterServer: NSObject {
     private func get(endPoint:String, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
         manager.get(endPoint, parameters: nil, progress: nil,
                     success: { (task:URLSessionDataTask, response:Any?) in
-                        success(response)
+                        success(response!)
             }, failure: { (tast:URLSessionDataTask?, error:Error) in
                 failure(error)
         })
@@ -108,7 +108,7 @@ class TwitterServer: NSObject {
                     success(user)
                     
                 }) { (error:Error?) in
-                    print(error?.localizedDescription)
+                    print(error!.localizedDescription)
                     failure(error)
         }
     }
@@ -137,7 +137,7 @@ class TwitterServer: NSObject {
                         if let urlResponse = task.response as? HTTPURLResponse {
                             print("POST TASK = \(urlResponse.statusCode)")
                         }
-                        success(response)
+                        success(response as Any)
             }, failure: { (tast:URLSessionDataTask?, error:Error) in
                 failure(error)
         })
@@ -156,7 +156,7 @@ class TwitterServer: NSObject {
             success(updatedTweet)
         
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
@@ -174,7 +174,7 @@ class TwitterServer: NSObject {
             success(updatedTweet)
             
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
@@ -189,7 +189,7 @@ class TwitterServer: NSObject {
             success(newTweet)
             
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
@@ -208,7 +208,7 @@ class TwitterServer: NSObject {
             success(response)
             
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
@@ -225,7 +225,7 @@ class TwitterServer: NSObject {
             success(updatedTweet)
             
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
@@ -242,7 +242,7 @@ class TwitterServer: NSObject {
             success(newTweet)
             
         }) { (error:Error?) in
-            print(error?.localizedDescription)
+            print(error!.localizedDescription)
             failure(error)
         }
     }
