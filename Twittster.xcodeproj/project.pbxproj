@@ -19,6 +19,7 @@
 		8B6AF18A1DC41447000C05CA /* TwittsterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AF1891DC41447000C05CA /* TwittsterUser.swift */; };
 		8B6AF18C1DC41592000C05CA /* TweetEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AF18B1DC41592000C05CA /* TweetEntities.swift */; };
 		8B72A1E51DCD5402005721B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72A1E41DCD5402005721B8 /* ProfileViewController.swift */; };
+		8B72A1E81DCD97FD005721B8 /* ProfileBackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B72A1E71DCD97FD005721B8 /* ProfileBackgroundCell.swift */; };
 		8B8684391DC5238E003D1287 /* MainTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8684381DC5238E003D1287 /* MainTweetCell.swift */; };
 		8BACBF1B1DC2ABFC0089CB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACBF1A1DC2ABFC0089CB59 /* AppDelegate.swift */; };
 		8BACBF201DC2ABFC0089CB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BACBF1E1DC2ABFC0089CB59 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		8B6AF1891DC41447000C05CA /* TwittsterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwittsterUser.swift; sourceTree = "<group>"; };
 		8B6AF18B1DC41592000C05CA /* TweetEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetEntities.swift; sourceTree = "<group>"; };
 		8B72A1E41DCD5402005721B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8B72A1E71DCD97FD005721B8 /* ProfileBackgroundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBackgroundCell.swift; sourceTree = "<group>"; };
 		8B8684361DC46215003D1287 /* Twittster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Twittster.entitlements; sourceTree = "<group>"; };
 		8B8684381DC5238E003D1287 /* MainTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTweetCell.swift; sourceTree = "<group>"; };
 		8BACBF171DC2ABFC0089CB59 /* Twittster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twittster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +175,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		8B72A1E61DCD9517005721B8 /* Profile View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B72A1E41DCD5402005721B8 /* ProfileViewController.swift */,
+				8B72A1E71DCD97FD005721B8 /* ProfileBackgroundCell.swift */,
+			);
+			name = "Profile View Controller";
+			sourceTree = "<group>";
+		};
 		8B86843A1DC52399003D1287 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +223,7 @@
 				8BACBF1A1DC2ABFC0089CB59 /* AppDelegate.swift */,
 				8B6AF1831DC4120D000C05CA /* Model */,
 				8B6AF1801DC32119000C05CA /* Main & Mentions View Controller */,
+				8B72A1E61DCD9517005721B8 /* Profile View Controller */,
 				8B6AF17D1DC30A1E000C05CA /* Login View Controller */,
 				8BFDA0981DC553F500FACA24 /* Detail View Controller */,
 				8B6AF17C1DC30A14000C05CA /* TwitterServer */,
@@ -221,7 +233,6 @@
 				8BACBF211DC2ABFC0089CB59 /* Assets.xcassets */,
 				8BB1E5291DCA9AB10092BEC9 /* Hamburger View Controller */,
 				8BC6E1F61DCAAE0E002E2ACF /* Menu View Controller */,
-				8B72A1E41DCD5402005721B8 /* ProfileViewController.swift */,
 			);
 			path = Twittster;
 			sourceTree = "<group>";
@@ -572,6 +583,7 @@
 				8BC6E1F51DCAAE09002E2ACF /* MenuViewController.swift in Sources */,
 				8BCA546A1DC71EE3001DD7F0 /* LoginVC.swift in Sources */,
 				8B72A1E51DCD5402005721B8 /* ProfileViewController.swift in Sources */,
+				8B72A1E81DCD97FD005721B8 /* ProfileBackgroundCell.swift in Sources */,
 				8B6AF17B1DC307A9000C05CA /* TwitterServer.swift in Sources */,
 				8BD8683A1DC6EE9F001BCD99 /* ComposeViewController.swift in Sources */,
 				8BACBF1B1DC2ABFC0089CB59 /* AppDelegate.swift in Sources */,
