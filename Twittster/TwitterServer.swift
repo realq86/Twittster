@@ -14,8 +14,10 @@ class TwitterServer: NSObject {
     
     let manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
     
+    // App wide data store
     var timeline:[Tweet]?
     var mentionsTimeline:[Tweet]?
+    var userTimeline:[Tweet]?
     
     // MARK: - Login Methods
     var loginSuccessHandler:(()->())?
@@ -87,8 +89,8 @@ class TwitterServer: NSObject {
     
     
     // MARK: Generic GET
-    private func get(endPoint:String, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
-        manager.get(endPoint, parameters: nil, progress: nil,
+    private func get(endPoint:String, parameters: [String:String]?, success:@escaping (Any)->(), failure:@escaping (Error?)->()){
+        manager.get(endPoint, parameters: parameters, progress: nil,
                     success: { (task:URLSessionDataTask, response:Any?) in
                         success(response!)
             }, failure: { (tast:URLSessionDataTask?, error:Error) in
@@ -100,7 +102,8 @@ class TwitterServer: NSObject {
     public func getCredentials(success: @escaping (TwittsterUser)->(), failure: @escaping (Error?)->()) {
         
         self.get(endPoint: kTwitterGETCredentials,
-                success: { (response:Any) in
+                 parameters: nil,
+                 success: { (response:Any) in
                     
                     let user = TwittsterUser(withJson: response as! NSDictionary)
                     success(user)
@@ -114,7 +117,8 @@ class TwitterServer: NSObject {
     // MARK: GET Timeline
     public func getTimeline(success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
         self.get(endPoint: kTwitterGETTimeLine,
-                success: { (response:Any) in
+                 parameters: nil,
+                 success: { (response:Any) in
                     print("GET TimeLine Response = \(response)")
                     let responseDic = response as! [NSDictionary]
                     let tweetsArray = Tweet.initTweetsWith(array: responseDic)
@@ -126,10 +130,52 @@ class TwitterServer: NSObject {
                     failure(error)
         }
     }
+
+    // MARK: GET UserTimeline
+    public func getTimelineForUser(_ user:TwittsterUser, success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
+        
+        let parameter = ["user_id":user.idString as String]
+        self.get(endPoint: kTwitterGETUserTimeLine,
+                 parameters: parameter,
+                 success: { (response:Any) in
+                    print("GET UserTimeLine Response = \(response)")
+                    let responseDic = response as! [NSDictionary]
+                    let tweetsArray = Tweet.initTweetsWith(array: responseDic)
+                    self.userTimeline = tweetsArray
+                    print(tweetsArray.description)
+                    success(tweetsArray)
+        }) { (error:Error?) in
+            print("GET TimeLine Error = \(error?.localizedDescription)")
+            failure(error)
+        }
+    }
+    
+    // MARK: GET Profile Banner
+    public func getProfileBannerForUser(_ user:TwittsterUser, success: @escaping (URL?)->(), failure: @escaping (Error?)->()) {
+        
+        let parameter = ["user_id":user.idString as String]
+        self.get(endPoint: kTwitterGETProfileBanner,
+                 parameters: parameter,
+                 success: { (response:Any) in
+                    print("GET ProfileBanner Response = \(response)")
+                    let responseDic = response as! NSDictionary
+                    let imageURL = responseDic.value(forKeyPath: "sizes.mobile_retina.url") as! String
+                    if let bannerURL = URL(string: imageURL) {
+                        success(bannerURL)
+                    }
+                    else {
+                        success(nil)
+                    }
+        }) { (error:Error?) in
+            print("GET TimeLine Error = \(error?.localizedDescription)")
+            failure(error)
+        }
+    }
     
     // MARK: GET Mentions
     public func getMentions(success: @escaping ([Tweet])->(), failure: @escaping (Error?)->()) {
         self.get(endPoint: kTwitterGETMentions,
+                 parameters: nil,
                  success: { (response:Any) in
                     print("GET Mentions Response = \(response)")
                     let responseDic = response as! [NSDictionary]

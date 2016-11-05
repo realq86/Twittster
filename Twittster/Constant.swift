@@ -62,4 +62,6 @@ let kTwitterGETMentions = "/1.1/statuses/mentions_timeline.json"
 
 let kRetweetedNotificationName = "NotificationNameRetweeted"
 
+let kTwitterGETUserTimeLine = "/1.1/statuses/user_timeline.json"
 
+let kTwitterGETProfileBanner = "/1.1/users/profile_banner.json"

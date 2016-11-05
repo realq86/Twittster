@@ -24,6 +24,8 @@ class TwittsterUser: NSObject {
     
     var profileImageURLHTTPS:URL?
     
+    var profileBackgroundImageHTTPS:URL?
+    
     init(withJson json:NSDictionary) {
         
         self.userInJson = json
@@ -40,6 +42,10 @@ class TwittsterUser: NSObject {
         
         if let urlString = json["profile_image_url_https"] as? NSString {
             self.profileImageURLHTTPS = URL(string: urlString as String)
+        }
+        
+        if let urlString = json["profile_background_image_url_https"] as? String {
+            self.profileBackgroundImageHTTPS = URL(string: urlString as String)
         }
     }
     
