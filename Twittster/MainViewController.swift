@@ -36,6 +36,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             self.updateTableView()
         }
+        
+        let touchOnProfilePicNotification = Notification.Name("TapOnProfilePicNotification")
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(userDidClickProfilePic(sender:)),
+                                               name: touchOnProfilePicNotification,
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,6 +129,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: directMessageToTweet)
 //    }
     
+    
+    func userDidClickProfilePic(sender:Notification) {
+        
+        print(sender)
+        
+        self.performSegue(withIdentifier: "SegueToProfileViewController", sender: sender.userInfo!["User"])
+        
+    }
+    
     func userDidClickReplyMessage(tweetOfReceiver: Tweet) {
         self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: tweetOfReceiver)
     }
@@ -153,15 +168,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 composeVC.replyToTweet = receiverTweet
             }
         }
+        
+        if segue.identifier == "SegueToProfileViewController" {
+            
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.user = sender as! TwittsterUser
+            
+        }
      }
     
-    
-    @IBAction func touchOnProfilePic(_ sender: Any) {
-        
-        print("TAP ON PROFILE PIC")
-        
-        
-    }
     
     
  

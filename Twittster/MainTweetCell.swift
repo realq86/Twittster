@@ -72,6 +72,12 @@ class MainTweetCell: UITableViewCell {
         self.starButton.imageView?.contentMode = .scaleAspectFit
         self.retweetButton.imageView?.contentMode = .scaleAspectFit
         self.replyButton.imageView?.contentMode = .scaleAspectFit
+        
+        let profilePicGesture = UITapGestureRecognizer(target: self, action: #selector(touchOnProfilePic(sender:)))
+        profilePicGesture.numberOfTapsRequired = 1
+        self.profileImageView.addGestureRecognizer(profilePicGesture)
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -96,10 +102,20 @@ class MainTweetCell: UITableViewCell {
     }
     
     
+    func touchOnProfilePic(sender:UITapGestureRecognizer) {
+        print("TAP ON PROFILE PIC")
+        
+        let tapOnProfileNotification = Notification.Name("TapOnProfilePicNotification")
+        NotificationCenter.default.post(
+            name: tapOnProfileNotification,
+            object: nil,
+            userInfo: ["User":tweet.user])
+    }
+    
+    
     @IBAction func touchOnReply(_ sender: UIButton) {
         self.delegate?.userDidClickReplyMessage!(tweetOfReceiver: self.tweet)
     }
-    
     
     @IBAction func onTouchRetweet(_ sender: UIButton) {
         TwitterServer.sharedInstance.postRetweet(
@@ -111,10 +127,6 @@ class MainTweetCell: UITableViewCell {
             failure: { (error:Error?) in
         })
     }
-    
-    
-    
-    
     
     @IBAction func touchOnStar(_ sender: UIButton) {
         
@@ -143,11 +155,8 @@ class MainTweetCell: UITableViewCell {
                 },
                 failure: { (error:Error?) in
                     sender.isSelected = true
-                    
             })
         }
-        
-        
     }
     
     
