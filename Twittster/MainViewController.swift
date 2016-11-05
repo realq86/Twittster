@@ -153,10 +153,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 composeVC.replyToTweet = receiverTweet
             }
         }
-
-        
-        
      }
+    
+    
+    @IBAction func touchOnProfilePic(_ sender: Any) {
+        
+        print("TAP ON PROFILE PIC")
+        
+        
+    }
+    
+    
  
     @IBAction func onLogout(_ sender: AnyObject) {
         

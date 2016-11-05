@@ -143,11 +143,15 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-AU-6S1">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-AU-6S1">
                                                                     <rect key="frame" x="10" y="10" width="63.5" height="63.5"/>
+                                                                    <gestureRecognizers/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Scq-AU-6S1" secondAttribute="height" multiplier="1:1" id="urJ-HP-VbY"/>
                                                                     </constraints>
+                                                                    <connections>
+                                                                        <outletCollection property="gestureRecognizers" destination="cIv-0v-qpK" appends="YES" id="0Du-jU-Lum"/>
+                                                                    </connections>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 hr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da1-yk-FIv">
                                                                     <rect key="frame" x="281.5" y="35.5" width="28.5" height="14.5"/>
@@ -259,6 +263,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkQ-WG-9Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cIv-0v-qpK" userLabel="Tap Gesture Recognizer &lt;ProfilePic&gt;">
+                    <connections>
+                        <action selector="touchOnProfilePic:" destination="6u2-Mq-344" id="UPd-mU-qgt"/>
+                        <segue destination="d3S-dx-hX3" kind="show" id="Pdx-5C-RDQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1829.5999999999999" y="138.98050974512745"/>
         </scene>
@@ -362,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9V-Fe-6sC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2550" y="877"/>
+            <point key="canvasLocation" x="2584" y="1816"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="se3-wt-kjk">
@@ -416,11 +426,15 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzU-mF-7Xh" userLabel="ProfileView">
                                                         <rect key="frame" x="0.0" y="30" width="320" height="74"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZi-f9-LWz">
+                                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZi-f9-LWz">
                                                                 <rect key="frame" x="5" y="5" width="64" height="64"/>
+                                                                <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="dZi-f9-LWz" secondAttribute="height" multiplier="1:1" id="WAu-Wh-YQ2"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="gNm-Po-lo7" appends="YES" id="JIo-An-bM0"/>
+                                                                </connections>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProfileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxF-K4-Xyy">
                                                                 <rect key="frame" x="74" y="2" width="94" height="20.5"/>
@@ -665,8 +679,43 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcq-wH-r4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gNm-Po-lo7" userLabel="Tap Gesture Recognizer &lt;ProfilePic&gt;">
+                    <connections>
+                        <segue destination="d3S-dx-hX3" kind="show" id="VeS-r9-zRC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2549.5999999999999" y="137.18140929535232"/>
+            <point key="canvasLocation" x="2224" y="934"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="FPp-ig-4Zq">
+            <objects>
+                <viewController id="d3S-dx-hX3" customClass="ProfileViewController" customModule="Twittster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZuL-DS-Do7"/>
+                        <viewControllerLayoutGuide type="bottom" id="UXs-IN-J9f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y7f-m8-8VY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProfileView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIU-kl-qV8">
+                                <rect key="frame" x="117.5" y="274" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TIU-kl-qV8" firstAttribute="centerX" secondItem="y7f-m8-8VY" secondAttribute="centerX" id="G6f-NM-1af"/>
+                            <constraint firstItem="TIU-kl-qV8" firstAttribute="centerY" secondItem="y7f-m8-8VY" secondAttribute="centerY" id="Nqt-0x-blM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dl-c9-x5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3454" y="615"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kaK-jv-gV4">
@@ -704,7 +753,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAM-Yu-ey8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="877"/>
+            <point key="canvasLocation" x="1864" y="1816"/>
         </scene>
         <!--Hamburger View Controller-->
         <scene sceneID="EmU-hj-YgL">
@@ -871,5 +920,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9gT-yZ-KOF"/>
+        <segue reference="Pdx-5C-RDQ"/>
     </inferredMetricsTieBreakers>
 </document>
