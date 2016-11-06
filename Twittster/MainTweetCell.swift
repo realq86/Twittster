@@ -9,7 +9,11 @@
 import UIKit
 
 @objc protocol MainTweetCellDelegate {
-    @objc optional func userDidClickReplyMessage(tweetOfReceiver:Tweet)
+    func userDidClickReplyMessage(tweetOfReceiver:Tweet)
+    
+    func updateModelWith(tweet:Tweet)
+    
+    func userDidClickProfilePic(user:TwittsterUser)
 }
 
 class MainTweetCell: UITableViewCell {
@@ -94,34 +98,40 @@ class MainTweetCell: UITableViewCell {
     }
     
     func refreshViewAndUpdateServerModel(with tweet:Tweet) {
-        let server = TwitterServer.sharedInstance
-        
-        if timelineOrMentions == "Timeline" {
-            server.updateTweetInTimeline(withTweet: tweet)
-        }
-        else if timelineOrMentions == "Mentions" {
-            server.updateTweetInMentions(withTweet: tweet)
-        }
+//        let server = TwitterServer.sharedInstance
+//        
+//        if timelineOrMentions == "Timeline" {
+//            server.updateTweetInTimeline(withTweet: tweet)
+//        }
+//        else if timelineOrMentions == "Mentions" {
+//            server.updateTweetInMentions(withTweet: tweet)
+//        }
 //        server.updateTweetInModel(withTweet: tweet)
         
-        let notificationName = Notification.Name(kRetweetedNotificationName)
-        NotificationCenter.default.post(name: notificationName, object: self)
+//        let notificationName = Notification.Name(kRetweetedNotificationName)
+//        NotificationCenter.default.post(name: notificationName,
+//                                        object: self,
+//                                        userInfo: ["Tweet":tweet])
+        
+        self.delegate?.updateModelWith(tweet: tweet)
     }
     
     
     func touchOnProfilePic(sender:UITapGestureRecognizer) {
         print("TAP ON PROFILE PIC")
         
-        let tapOnProfileNotification = Notification.Name("TapOnProfilePicNotification")
-        NotificationCenter.default.post(
-            name: tapOnProfileNotification,
-            object: nil,
-            userInfo: ["User":tweet.user])
+//        let tapOnProfileNotification = Notification.Name("TapOnProfilePicNotification")
+//        NotificationCenter.default.post(
+//            name: tapOnProfileNotification,
+//            object: nil,
+//            userInfo: ["User":tweet.user])
+        
+        self.delegate?.userDidClickProfilePic(user: tweet.user)
     }
     
     
     @IBAction func touchOnReply(_ sender: UIButton) {
-        self.delegate?.userDidClickReplyMessage!(tweetOfReceiver: self.tweet)
+        self.delegate?.userDidClickReplyMessage(tweetOfReceiver: self.tweet)
     }
     
     @IBAction func onTouchRetweet(_ sender: UIButton) {
