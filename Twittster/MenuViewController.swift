@@ -22,15 +22,28 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.setupTableView()
         // Do any additional setup after loading the view.
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID")
-        tableViewDataBackArray.append(timelineVC)
-    
-        let mentionsVC = MentionsViewController.instantiate()
-        let mentionsNaviVC = UINavigationController(rootViewController: mentionsVC)
-            
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+//        timelineVC.title = "Timeline"
+//        let timelineNaviVC = UINavigationController(rootViewController: timelineVC)
+//        tableViewDataBackArray.append(timelineNaviVC)
+//    
+//        let mentionsVC = MentionsViewController.instantiate()
+//        let mentionsNaviVC = UINavigationController(rootViewController: mentionsVC)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let timelineNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
+        let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        timelineVC.title = "HOME"
+        timelineNaviVC.setViewControllers([timelineVC], animated: false)
+        tableViewDataBackArray.append(timelineNaviVC)
+
+        
+        let mentionsNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
+        let mentionsVC = MentionsViewController.instantiate()
+        mentionsNaviVC.setViewControllers([mentionsVC], animated: false)
         tableViewDataBackArray.append(mentionsNaviVC)
+        
         hamburgerVC.contentVC = mentionsNaviVC
     }
     
@@ -52,27 +65,47 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
         return tableViewDataBackArray.count
+        }
+        else {
+            return 0
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = "TEST"
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+            
+            let menuItems = tableViewDataBackArray[indexPath.row] as! UINavigationController
+            let menuVC = menuItems.viewControllers[0]
+            cell.menuTitleLabel.text = menuVC.title
+            
+            return cell
+        }
+        else {
+            return UITableViewCell()
+        }
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.row == 0 {
-            let timelineNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
-            hamburgerVC.contentVC = timelineNaviVC
+
+        let mentionsNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
+        hamburgerVC.contentVC = mentionsNaviVC
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return self.view.bounds.height * 0.25
         }
-        else if indexPath.row == 1 {
-            let mentionsNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
-            hamburgerVC.contentVC = mentionsNaviVC
+        else {
+            return UITableViewAutomaticDimension
         }
     }
     

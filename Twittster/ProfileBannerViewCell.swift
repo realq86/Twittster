@@ -82,5 +82,12 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
         
     }
     
+    @IBAction func touchOnPageControl(_ sender: Any) {
+        
+        print("TOUCH ON PAGE")
+    }
+    
+    
+    
     
 }
