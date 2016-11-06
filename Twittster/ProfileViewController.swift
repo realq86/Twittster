@@ -104,8 +104,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileBackgroundCell", for: indexPath) as! ProfileBackgroundCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserStateCell", for: indexPath) as! UserStateCell
 
+        cell.user = user
         return cell
     }
     

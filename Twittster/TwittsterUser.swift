@@ -28,6 +28,12 @@ class TwittsterUser: NSObject {
     
     var profileDescription:String?
     
+    var tweetCount:NSNumber!
+    
+    var followersCount:NSNumber!
+    
+    var followingCount:NSNumber!
+    
     init(withJson json:NSDictionary) {
         
         self.userInJson = json
@@ -56,6 +62,13 @@ class TwittsterUser: NSObject {
         if let profiledescriptionString = json["description"] as? String {
             self.profileDescription = profiledescriptionString
         }
+        
+        self.tweetCount = json["statuses_count"] as! NSNumber
+        
+        self.followersCount = json["followers_count"] as! NSNumber
+        
+        self.followingCount = json["friends_count"] as! NSNumber
+        
     }
     
     static var _currentUser:TwittsterUser?
