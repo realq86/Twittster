@@ -68,7 +68,10 @@ class HamburgerViewController: UIViewController {
         let velocity = sender.velocity(in: view)
         
         if sender.state == .began {
-            contentViewPreviousMargin = contentViewLeadingConstraint.constant
+            
+            if velocity.x > 0 {
+                contentViewPreviousMargin = contentViewLeadingConstraint.constant
+            }
         }
         else if sender.state == .changed {
             contentViewLeadingConstraint.constant = contentViewPreviousMargin + translation.x
