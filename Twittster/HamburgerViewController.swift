@@ -69,12 +69,15 @@ class HamburgerViewController: UIViewController {
         
         if sender.state == .began {
             
-            if velocity.x > 0 {
-                contentViewPreviousMargin = contentViewLeadingConstraint.constant
-            }
+
+            contentViewPreviousMargin = contentViewLeadingConstraint.constant
         }
         else if sender.state == .changed {
-            contentViewLeadingConstraint.constant = contentViewPreviousMargin + translation.x
+            
+            if velocity.x > 0 {
+                contentViewLeadingConstraint.constant = contentViewPreviousMargin + translation.x
+            }
+
         }
         else if sender.state == .ended {
             
