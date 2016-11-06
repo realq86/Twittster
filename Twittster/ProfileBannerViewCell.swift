@@ -23,6 +23,26 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var profileImageViewContainer: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileBannerImageView: UIImageView!
+    @IBOutlet weak var profileDescription: UILabel!
+    
+    
+    var user:TwittsterUser! {
+        
+        didSet {
+            if let profileBannerURL = user.profileBackgroundImageHTTPS {
+                self.profileBannerImageView.setImageWith(profileBannerURL)
+            }
+            
+            if let profileDescription = user.profileDescription {
+                self.profileDescription.text = profileDescription
+            }
+            
+            if let profileImageURL = user.profileImageURLHTTPS {
+                self.profileImageView.setImageWith(profileImageURL)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

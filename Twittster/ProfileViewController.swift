@@ -111,17 +111,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let profileViewHeader = tableView.dequeueReusableCell(withIdentifier: "ProfileBannerHeaderView") as! ProfileBannerViewCell
-        
-        if let profileBannerURL = self.profileBannerURL {
-            profileViewHeader.profileBannerImageView.setImageWith(profileBannerURL)
+        if section == 0 {
+            let profileViewHeader = tableView.dequeueReusableCell(withIdentifier: "ProfileBannerHeaderView") as! ProfileBannerViewCell
+            
+            profileViewHeader.user = self.user
+            
+            return profileViewHeader
         }
         
-        return profileViewHeader
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300.0
+        
+        if section == 0 {
+            return self.view.bounds.height * 0.35
+        }
+        return 0
     }
     
     /*
