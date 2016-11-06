@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     
     //Profile Views in StackView index 1
     @IBOutlet weak var profilePanel: UIView!
+    @IBOutlet weak var profileImageViewContainer: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var screenName: UILabel!
@@ -92,6 +93,16 @@ class DetailViewController: UIViewController {
         self.starButton.imageView?.contentMode = .scaleAspectFit
         self.retweetButton.imageView?.contentMode = .scaleAspectFit
         self.replyButton.imageView?.contentMode = .scaleAspectFit
+        
+        self.profileImage.layer.cornerRadius = 10.0
+        
+        self.profileImageViewContainer.layer.cornerRadius = 10.0
+        self.profileImageViewContainer.layer.shadowColor = UIColor.black.cgColor
+        self.profileImageViewContainer.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        self.profileImageViewContainer.layer.shadowRadius = 2.0
+        self.profileImageViewContainer.layer.shadowOpacity = 1.0
+
+        
     }
     
     

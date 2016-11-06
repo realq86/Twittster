@@ -18,12 +18,24 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewContentView: UIView!
+    
+    
+    @IBOutlet weak var profileImageViewContainer: UIView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileBannerImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         self.blurMask.alpha = 0.0
+//        
+        self.profileImageView.layer.cornerRadius = 10.0
+        
+        self.profileImageViewContainer.layer.cornerRadius = 10.0
+        self.profileImageViewContainer.layer.shadowColor = UIColor.black.cgColor
+        self.profileImageViewContainer.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        self.profileImageViewContainer.layer.shadowRadius = 2.0
+        self.profileImageViewContainer.layer.shadowOpacity = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

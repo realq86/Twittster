@@ -15,6 +15,7 @@ import UIKit
 class MainTweetCell: UITableViewCell {
 
     
+    @IBOutlet weak var profileImageViewContainer: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var userScreenName: UILabel!
@@ -77,7 +78,13 @@ class MainTweetCell: UITableViewCell {
         profilePicGesture.numberOfTapsRequired = 1
         self.profileImageView.addGestureRecognizer(profilePicGesture)
         
+        self.profileImageView.layer.cornerRadius = 10.0
         
+        self.profileImageViewContainer.layer.cornerRadius = 10.0
+        self.profileImageViewContainer.layer.shadowColor = UIColor.black.cgColor
+        self.profileImageViewContainer.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        self.profileImageViewContainer.layer.shadowRadius = 2.0
+        self.profileImageViewContainer.layer.shadowOpacity = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
