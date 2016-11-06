@@ -31,17 +31,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             weakSelf?.updateTableView()
         }
         
-        let notificationName = Notification.Name(kRetweetedNotificationName)
-        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            
-            self.updateTableView()
-        }
+//        let notificationName = Notification.Name(kRetweetedNotificationName)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(userUpdatedTweetNotification(sender:)),
+//                                               name: notificationName,
+//                                               object: nil)
         
-        let touchOnProfilePicNotification = Notification.Name("TapOnProfilePicNotification")
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(userDidClickProfilePic(sender:)),
-                                               name: touchOnProfilePicNotification,
-                                               object: nil)
+//        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+//            
+//            
+//            
+//            self.updateTableView()
+//        }
+        
+//        let touchOnProfilePicNotification = Notification.Name("TapOnProfilePicNotification")
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(userDidClickProfilePic(sender:)),
+//                                               name: touchOnProfilePicNotification,
+//                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,35 +125,44 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-    
     }
     
     
+    // MARK: - Notification From TableViewCell
     
-     // MARK: - Navigation
-    
-//    func userDidClickDirectMessage(directMessageToTweet: Tweet) {
-//        self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: directMessageToTweet)
+//    func userUpdatedTweetNotification(sender:Notification) {
+//        let tweet = sender.userInfo?["Tweet"] as! Tweet
+//        
+//        let server = TwitterServer.sharedInstance
+//            server.updateTweetInTimeline(withTweet: tweet)
+//
 //    }
     
-    
-    func userDidClickProfilePic(sender:Notification) {
-        
-        print(sender)
-        
-        self.performSegue(withIdentifier: "SegueToProfileViewController", sender: sender.userInfo!["User"])
-        
+    // MARK: - MainTweet Cell Delegate
+    func updateModelWith(tweet: Tweet) {
+        let server = TwitterServer.sharedInstance
+        server.updateTweetInTimeline(withTweet: tweet)
+    }
+ 
+    func userDidClickProfilePic(user: TwittsterUser) {
+        print("Pushing to user = \(user.name)")
+        self.performSegue(withIdentifier: "SegueToProfileViewController", sender: user)
     }
     
     func userDidClickReplyMessage(tweetOfReceiver: Tweet) {
         self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: tweetOfReceiver)
     }
+
+     // MARK: - Navigation
     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+//    func userDidClickProfilePic(sender:Notification) {
+//        print(sender)
+//        self.performSegue(withIdentifier: "SegueToProfileViewController", sender: sender.userInfo!["User"])
+//    }
+
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-        
+
         if segue.identifier == "SegueToDetailViewController" {
             
             let cell = sender as! MainTweetCell

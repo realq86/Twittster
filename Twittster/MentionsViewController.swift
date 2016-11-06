@@ -22,7 +22,7 @@ class MentionsViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Mentions"
+        self.title = "MENTIONS"
         self.timelineOrMentions = "Mentions"
         // Do any additional setup after loading the view.
     }
@@ -50,8 +50,20 @@ class MentionsViewController: MainViewController {
         self.tableView.reloadData()
     }
     
+    // MARK: - Notification From TableViewCell
+    
+//    override func userUpdatedTweetNotification(sender:Notification) {
+//        let tweet = sender.userInfo?["Tweet"] as! Tweet
+//        
+//        let server = TwitterServer.sharedInstance
+//        server.updateTweetInMentions(withTweet: tweet)
+//        
+//    }
 
-
+    override func updateModelWith(tweet: Tweet) {
+        let server = TwitterServer.sharedInstance
+        server.updateTweetInMentions(withTweet: tweet)
+    }
     
     // MARK: - Navigation
 

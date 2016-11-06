@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, MainTweetCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tableViewDataBackArray = [AnyObject]()
+    var tableViewDataBackArray = [Tweet]()
     
     var user:TwittsterUser!
     
     var profileBannerURL:URL?
     
+    var tweetsArray = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if user.screenName == TwittsterUser.currentUser?.screenName {
+            self.title = "Me"
+        }
+        else {
+            self.title = user.name
+        }
         
         self.setupTableView()
         // Do any additional setup after loading the view.
@@ -82,9 +90,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateTableView() {
         let manager = TwitterServer.sharedInstance
         if let homeTimeline = manager.userTimeline {
-            self.tableViewDataBackArray = homeTimeline
+            self.tweetsArray = homeTimeline
         }
         
+        self.tableViewDataBackArray = self.tweetsArray
         self.tableView.reloadData()
     }
     
@@ -123,8 +132,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTweetCell", for: indexPath) as! MainTweetCell
-            
+            cell.delegate = self
             cell.tweet = self.tableViewDataBackArray[indexPath.row] as! Tweet
+            cell.tag = indexPath.row
+
             return cell
         }
     }
@@ -150,14 +161,79 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 0
     }
     
-    /*
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - MainTweet Cell Delegate
+    func userDidClickReplyMessage(tweetOfReceiver: Tweet) {
+                self.performSegue(withIdentifier: "SegueToComposeNaviVC", sender: tweetOfReceiver)
+    }
+    
+    func updateModelWith(tweet: Tweet) {
+        let server = TwitterServer.sharedInstance
+        server.updateTweetInUserTimeline(withTweet: tweet)
+    }
+    
+    func userDidClickProfilePic(user: TwittsterUser) {
+        
+        //Only segue to another person's profile
+        if user.idString != self.user.idString {
+            print("Pushing to user = \(user.name)")
+//            self.performSegue(withIdentifier: "SegueToProfileViewController", sender: user)
+            
+            let anotherProfileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController")
+            
+            let segue = UIStoryboardSegue(identifier: "SegueToProfileViewController",
+                                          source: self,
+                                          destination: anotherProfileVC,
+                                          performHandler: {
+                                            
+                                                    self.navigationController?.show(anotherProfileVC, sender: self)
+                                            
+            })
+            self.prepare(for: segue, sender: user)
+            segue.perform()
+        }
+    }
+    
      // MARK: - Navigation
-     
+    
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "SegueToComposeNaviVC" {
+            
+            let naviVC = segue.destination as! UINavigationController
+            let composeVC = naviVC.viewControllers[0] as! ComposeViewController
+            if let receiverTweet = sender as? Tweet {
+                composeVC.replyToTweet = receiverTweet
+            }
+        }
+        
+        if segue.identifier == "SegueToDetailViewController" {
+            
+            let cell = sender as! MainTweetCell
+            let detailVC = segue.destination as! DetailViewController
+            
+            let chosenTweetID = self.tableViewDataBackArray[cell.tag].id
+            detailVC.tweet = TwitterServer.sharedInstance.userTimeline?.first(where: { (eachTweet) -> Bool in
+                return eachTweet.id.intValue == chosenTweetID?.intValue
+            })
+            detailVC.timelineOrMentions = "Profile"
+        }
+        
+        if segue.identifier == "SegueToProfileViewController" {
+            
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.user = sender as! TwittsterUser
+            
+        }
+        
      }
-     */
+ 
     
 }

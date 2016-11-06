@@ -116,6 +116,9 @@ class DetailViewController: UIViewController {
         else if timelineOrMentions == "Mentions" {
             server.updateTweetInMentions(withTweet: tweet)
         }
+        else if timelineOrMentions == "Profile" {
+            server.updateTweetInUserTimeline(withTweet: tweet)
+        }
         
         self.setupViews(with: tweet)
     }
