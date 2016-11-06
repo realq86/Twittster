@@ -98,16 +98,35 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.estimatedSectionHeaderHeight = 25;
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tableViewDataBackArray.count
-        return 1
+        
+        if section == 0 {
+            return 1
+        }
+        else {
+            return tableViewDataBackArray.count
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserStateCell", for: indexPath) as! UserStateCell
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserStateCell", for: indexPath) as! UserStateCell
 
-        cell.user = user
-        return cell
+            cell.user = user
+            return cell
+        }
+        
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainTweetCell", for: indexPath) as! MainTweetCell
+            
+            cell.tweet = self.tableViewDataBackArray[indexPath.row] as! Tweet
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
