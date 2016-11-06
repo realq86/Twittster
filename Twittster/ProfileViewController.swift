@@ -94,6 +94,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.delegate = self
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedSectionHeaderHeight = 25;
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,12 +105,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileBackgroundCell", for: indexPath) as! ProfileBackgroundCell
-        if let profileBanner = self.profileBannerURL {
-            cell.backgroundImageView.setImageWith(profileBanner)
-        }
+
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let profileViewHeader = tableView.dequeueReusableCell(withIdentifier: "ProfileBannerHeaderView") as! ProfileBannerViewCell
+        
+        if let profileBannerURL = self.profileBannerURL {
+            profileViewHeader.profileBannerImageView.setImageWith(profileBannerURL)
+        }
+        
+        return profileViewHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 300.0
+    }
     
     /*
      // MARK: - Navigation
