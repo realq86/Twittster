@@ -21,7 +21,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Timeline"
+//        self.title = "HOME"
         self.timelineOrMentions = "Timeline"
         self.setupTableView()
         self.setupRefreshControl()
