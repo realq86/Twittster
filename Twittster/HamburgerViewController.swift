@@ -87,7 +87,8 @@ class HamburgerViewController: UIViewController {
             
             UIView.animate(withDuration: 0.3, animations: {
                 if velocity.x > 0.0 { // pan right
-                    self.contentViewLeadingConstraint.constant  =  self.view.frame.size.width * 0.9
+//                    self.contentViewLeadingConstraint.constant  =  self.view.frame.size.width * 0.9
+                    self.contentViewLeadingConstraint.constant = self.view.bounds.width - 50
                     self.contentView.subviews[0].isUserInteractionEnabled = false
                 }
                 else {  // pan left

@@ -23,8 +23,16 @@ class TwitterServer: NSObject {
     var loginSuccessHandler:(()->())?
     var loginFailureHandler:(()->())?
     
+    public func clearData() {
+        timeline?.removeAll()
+        mentionsTimeline?.removeAll()
+        userTimeline?.removeAll()
+        let notificationName = Notification.Name("ClearData")
+        NotificationCenter.default.post(name:notificationName, object: self)
+    }
+    
     public func login(success:@escaping ()->(),failure:()->()) {
-        
+        self.clearData()
         self.loginSuccessHandler = success
         let deauth = manager.deauthorize()
         print("ONLOGOUT: KEYCHIAN DELETED = \(deauth)")
@@ -40,6 +48,8 @@ class TwitterServer: NSObject {
     
     public func logout() {
         TwittsterUser.currentUser = nil
+        
+        self.clearData()
         let deauth = manager.deauthorize()
         print("ONLOGOUT: KEYCHIAN DELETED = \(deauth)")
         self.manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!

@@ -38,7 +38,14 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
             self.updateTableView()
         }
         
-        
+        let notificationName = Notification.Name("ClearData")
+        NotificationCenter.default.addObserver(
+            forName: notificationName,
+            object: nil,
+            queue: OperationQueue.main) { (notification:Notification) in
+                self.tableViewDataBackArray.removeAll()
+                self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {

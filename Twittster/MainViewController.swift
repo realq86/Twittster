@@ -49,6 +49,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 //                                               selector: #selector(userDidClickProfilePic(sender:)),
 //                                               name: touchOnProfilePicNotification,
 //                                               object: nil)
+        
+        
+        let notificationName = Notification.Name("ClearData")
+        NotificationCenter.default.addObserver(
+            forName: notificationName,
+            object: nil,
+            queue: OperationQueue.main) { (notification:Notification) in
+                self.tableViewDataBackArray.removeAll()
+                self.tableView.reloadData()
+
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

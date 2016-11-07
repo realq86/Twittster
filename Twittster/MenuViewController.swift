@@ -127,10 +127,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             if indexPath.row != 0 {
                 TwitterServer.sharedInstance.login(
                     success: {
+                        
                         print("NEW LOGIN")
+                        TwitterServer.sharedInstance.clearData()
                 },
                     failure: {
-                        
+                        TwitterServer.sharedInstance.clearData()
                 })
             }
         }
@@ -149,6 +151,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         else {
             return UITableViewAutomaticDimension
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        TwittsterUser.userArray.remove(at: indexPath.row)
+        self.tableView.reloadData()
     }
     
     /*
