@@ -235,13 +235,13 @@
 				8B72A1E61DCD9517005721B8 /* Profile View Controller */,
 				8B6AF17D1DC30A1E000C05CA /* Login View Controller */,
 				8BFDA0981DC553F500FACA24 /* Detail View Controller */,
+				8BB1E5291DCA9AB10092BEC9 /* Hamburger View Controller */,
+				8BC6E1F61DCAAE0E002E2ACF /* Menu View Controller */,
 				8B6AF17C1DC30A14000C05CA /* TwitterServer */,
 				8BD8683B1DC6EEA4001BCD99 /* Compose View Controller */,
 				8BACBF261DC2ABFC0089CB59 /* Info.plist */,
 				8BACBF231DC2ABFC0089CB59 /* LaunchScreen.storyboard */,
 				8BACBF211DC2ABFC0089CB59 /* Assets.xcassets */,
-				8BB1E5291DCA9AB10092BEC9 /* Hamburger View Controller */,
-				8BC6E1F61DCAAE0E002E2ACF /* Menu View Controller */,
 			);
 			path = Twittster;
 			sourceTree = "<group>";

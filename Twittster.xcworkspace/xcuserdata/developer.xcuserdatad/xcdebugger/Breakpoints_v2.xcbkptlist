@@ -1030,13 +1030,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "updateModelWith(tweet:)"
-            landmarkType = "7">
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1046,12 +1046,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "updateModelWith(tweet:)"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "userDidClickProfilePic(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1126,11 +1126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "userDidClickProfilePic(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1142,11 +1142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "userDidClickProfilePic(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1158,23 +1158,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "userDidClickProfilePic(user:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "247"
@@ -1190,11 +1174,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Twittster/ProfileViewController.swift"
+            timestampString = "500187757.118846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1206,11 +1206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1222,11 +1222,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "userDidClickProfilePic(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1238,11 +1238,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1254,13 +1254,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twittster/ProfileViewController.swift"
-            timestampString = "500185204.958691"
+            timestampString = "500187757.118846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

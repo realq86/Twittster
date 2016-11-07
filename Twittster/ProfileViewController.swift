@@ -13,7 +13,7 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     
-    weak var profileHeaderCell:ProfileBannerViewCell!
+    weak var profileHeaderCell:ProfileBannerViewCell?
     var tableViewDataBackArray = [Tweet]()
     
     var user:TwittsterUser!
@@ -37,6 +37,7 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         self.callAPI {
             self.updateTableView()
         }
+        
         
     }
     
@@ -142,8 +143,6 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0 {
@@ -153,6 +152,7 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
             
             self.profileHeaderCell = profileViewHeader
             return profileViewHeader
+//            return self.profileHeaderCell
         }
         
         return nil
@@ -177,6 +177,9 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+        self.profileHeaderCell = nil
+    }
     
     
     
@@ -192,21 +195,27 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         else if sender.state == .changed {
             print("X is =  \(location.y)")
             
-            self.profileHeaderCell.updateHeight(y: location.y)
+            if let profileCell = self.profileHeaderCell {
+//                let profileCell = self.profileHeaderCell
+                profileCell.updateHeight(y: location.y)
 
-            UIView.setAnimationsEnabled(false)
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
-            
+                UIView.setAnimationsEnabled(false)
+                tableView.beginUpdates()
+                tableView.endUpdates()
+                UIView.setAnimationsEnabled(true)
+            }
             print("USER PANNED")
         }
         else if sender.state == .ended {
             print("USER PAN ENDED")
 
-            self.profileHeaderCell.restoreHeight()
-            tableView.beginUpdates()
-            tableView.endUpdates()
+            if let profileCell = self.profileHeaderCell {
+//    let profileCell = self.profileHeaderCell
+
+                profileCell.restoreHeight()
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
         }
     }
     

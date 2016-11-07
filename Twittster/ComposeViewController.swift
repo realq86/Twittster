@@ -60,7 +60,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             self.textView.text = (replyToTweet.user.screenName)! + " "
         }
         
-        if let receiver = self.receiver {
+        if self.receiver != nil {
 //            self.textView.text = receiver.screenName + " "
             self.tweetButton.title = "Message"
         }
