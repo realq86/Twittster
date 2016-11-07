@@ -71,8 +71,16 @@ class TwittsterUser: NSObject {
         
     }
     
+    static var userArray:[Data] = {
+        
+        let defaults = UserDefaults.standard
+        if let userArrayInDefault = defaults.object(forKey:kCurrentUserKeyInUserDefault) as? [Data] {
+            return userArrayInDefault
+        }
+        
+        return [Data]()
+    }()
     
-    static var userArray = [Data]()
     static var _currentUser:TwittsterUser?
     class var currentUser:TwittsterUser? {
         get {

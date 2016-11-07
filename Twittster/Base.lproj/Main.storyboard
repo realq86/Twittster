@@ -1294,6 +1294,49 @@
                                             <outlet property="menuTitleLabel" destination="9I7-hW-yvg" id="JNn-Tf-FTB"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserAccountCell" id="nSz-uc-DfM" customClass="UserAccountCell" customModule="Twittster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="122" width="320" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nSz-uc-DfM" id="28C-65-krS">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zp-3X-1nb">
+                                                    <rect key="frame" x="139" y="36" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5Zp-3X-1nb" firstAttribute="centerY" secondItem="28C-65-krS" secondAttribute="centerY" id="bT0-3I-6QN"/>
+                                                <constraint firstItem="5Zp-3X-1nb" firstAttribute="centerX" secondItem="28C-65-krS" secondAttribute="centerX" id="dLp-iL-aZ4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userNameLabel" destination="5Zp-3X-1nb" id="PZN-am-sOC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCell" id="XZ5-ws-pVD" customClass="AddCell" customModule="Twittster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="216" width="320" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XZ5-ws-pVD" id="OCR-mB-XLg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3b-Tj-clU">
+                                                    <rect key="frame" x="111.5" y="36" width="97" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r3b-Tj-clU" firstAttribute="centerX" secondItem="OCR-mB-XLg" secondAttribute="centerX" id="aje-fZ-Kkx"/>
+                                                <constraint firstItem="r3b-Tj-clU" firstAttribute="centerY" secondItem="OCR-mB-XLg" secondAttribute="centerY" id="qtO-CT-V3w"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

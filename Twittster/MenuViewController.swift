@@ -66,15 +66,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
         return tableViewDataBackArray.count
         }
+        else if section == 1 {
+            return TwittsterUser.userArray.count
+        }
         else {
-            return 0
+            return 1
         }
     }
     
@@ -89,15 +92,49 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             return cell
         }
+        else if indexPath.section == 1 {  //UserAccountCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountCell", for: indexPath) as! UserAccountCell
+
+            if let userJson =  try? JSONSerialization.jsonObject(with: TwittsterUser.userArray[indexPath.row], options: []) {
+                
+                let user = TwittsterUser(withJson: userJson as! NSDictionary)
+                cell.userNameLabel.text = user.screenName
+            }
+
+            return cell
+        }
         else {
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddCell
+            return cell
         }
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let mentionsNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
-        hamburgerVC.contentVC = mentionsNaviVC
+        
+        if indexPath.section == 0 {
+            let mentionsNaviVC = tableViewDataBackArray[indexPath.row] as! UINavigationController
+            hamburgerVC.contentVC = mentionsNaviVC
+        }
+        
+        //Chose user account
+        if indexPath.section == 1 {
+            if indexPath.row != 0 {
+                TwitterServer.sharedInstance.login(
+                    success: {
+                        print("NEW LOGIN")
+                },
+                    failure: {
+                        
+                })
+            }
+        }
+        
+        //Add user account
+        if indexPath.section == 2 {
+            
+            TwitterServer.sharedInstance.logout()
+        }
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -12,7 +12,7 @@ class TwitterServer: NSObject {
     
     static let sharedInstance = TwitterServer()
     
-    let manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
+    var manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
     
     // App wide data store
     var timeline:[Tweet]?
@@ -26,7 +26,8 @@ class TwitterServer: NSObject {
     public func login(success:@escaping ()->(),failure:()->()) {
         
         self.loginSuccessHandler = success
-        manager.deauthorize()
+        let deauth = manager.deauthorize()
+        print("ONLOGOUT: KEYCHIAN DELETED = \(deauth)")
         weak var weakSelf = self
         manager.fetchRequestToken(withPath: kTwitterRequestTokenPath, method: "GET", callbackURL: kTWitterCallBackURL, scope: nil,success: { (requestToken:BDBOAuth1Credential?) in
                         print("FetchRquestToken: Success Token = \(requestToken?.token)")
@@ -39,7 +40,9 @@ class TwitterServer: NSObject {
     
     public func logout() {
         TwittsterUser.currentUser = nil
-        manager.deauthorize()
+        let deauth = manager.deauthorize()
+        print("ONLOGOUT: KEYCHIAN DELETED = \(deauth)")
+        self.manager = BDBOAuth1SessionManager(baseURL:URL(string: kTwitterURLString), consumerKey:kTwitterConsumerKey, consumerSecret: kTwitterConsumerSecret)!
         let notificationName = Notification.Name(kUserLogoutNotificationName)
         NotificationCenter.default.post(name:notificationName, object: self)
     }
