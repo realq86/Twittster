@@ -32,6 +32,7 @@ class MainTweetCell: UITableViewCell {
     @IBOutlet weak var replyButton: UIButton!
     
     @IBOutlet weak var minFromNow: UILabel!
+    @IBOutlet weak var tweetImage: UIImageView!
     
     weak var delegate:MainTweetCellDelegate?
     
@@ -66,6 +67,10 @@ class MainTweetCell: UITableViewCell {
             self.starButton.isSelected = tweet!.favorited
             
             self.minFromNow.text = tweet!.minFromNow + "m ago"
+            
+            if let imageURL = tweet.image {
+                self.tweetImage.setImageWith(imageURL)
+            }
             
         }
     }

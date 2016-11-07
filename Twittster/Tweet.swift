@@ -81,12 +81,13 @@ class Tweet: NSObject {
 //        tweetJSON["entities"]["media"][0]["media_url_https"].string{
 //            mediaUrl = URL(string : mediaUrlString)
         let nsDic = newJson as NSDictionary
-        let mediaArray = nsDic.value(forKeyPath: "entities.media") as! NSArray
-        let mediaURLString = mediaArray[0] as! String
-        if let imageURL = URL(string: mediaURLString) {
-            self.image = imageURL
+        if let mediaArray = nsDic.value(forKeyPath: "entities.media") as? NSArray {
+            let firstMedia = mediaArray[0] as! NSDictionary
+            let mediaURLString = firstMedia["media_url_https"] as! String
+            if let imageURL = URL(string: mediaURLString) {
+                self.image = imageURL
+            }
         }
-        
         
         
     }
