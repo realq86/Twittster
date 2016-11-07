@@ -43,6 +43,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     
+    @IBOutlet weak var tweetImage: UIImageView!
+    
     var timelineOrMentions:String!
     
     override func viewDidLoad() {
@@ -102,6 +104,9 @@ class DetailViewController: UIViewController {
         self.profileImageViewContainer.layer.shadowRadius = 2.0
         self.profileImageViewContainer.layer.shadowOpacity = 1.0
 
+        if let imageURL = tweet.image {
+            self.tweetImage.setImageWith(imageURL)
+        }
         
     }
     
