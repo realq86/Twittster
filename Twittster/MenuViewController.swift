@@ -16,20 +16,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var hamburgerVC:HamburgerViewController!
     
+    let twitterUsers = TwittsterUser.userArray
+    let currentUser = TwittsterUser.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupTableView()
         // Do any additional setup after loading the view.
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let timelineVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-//        timelineVC.title = "Timeline"
-//        let timelineNaviVC = UINavigationController(rootViewController: timelineVC)
-//        tableViewDataBackArray.append(timelineNaviVC)
-//    
-//        let mentionsVC = MentionsViewController.instantiate()
-//        let mentionsNaviVC = UINavigationController(rootViewController: mentionsVC)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let timelineNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
@@ -41,15 +35,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let mentionsNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
         let mentionsVC = MentionsViewController.instantiate()
+        mentionsVC.title = "MENTIONS"
         mentionsNaviVC.setViewControllers([mentionsVC], animated: false)
         tableViewDataBackArray.append(mentionsNaviVC)
         
         let profileNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
-        let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        profileVC.title = "PROFILE"
+        profileVC.user = TwittsterUser.currentUser
         profileNaviVC.setViewControllers([profileVC], animated: false)
         tableViewDataBackArray.append(profileNaviVC)
         
-        hamburgerVC.contentVC = mentionsNaviVC
+        
+        //Set inital VC
+        hamburgerVC.contentVC = tableViewDataBackArray[0] as! UINavigationController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +78,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return tableViewDataBackArray.count
         }
         else if section == 1 {
-            return TwittsterUser.userArray.count
+            let userArray = TwittsterUser.userArray
+            return userArray.count
         }
         else {
             return 1
