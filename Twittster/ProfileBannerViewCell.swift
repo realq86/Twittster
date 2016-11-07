@@ -11,6 +11,7 @@ import UIKit
 let kBlurMaskLevel = CGFloat(0.25)
 let kNumberOfPages = 2
 
+
 class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var blurMask: UIView!
@@ -25,6 +26,9 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var profileBannerImageView: UIImageView!
     @IBOutlet weak var profileDescription: UILabel!
     
+    @IBOutlet weak var profileViewHeightConstraint: NSLayoutConstraint!
+    
+    var originalHeight:CGFloat!
     
     var user:TwittsterUser! {
         
@@ -56,12 +60,8 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
         self.profileImageViewContainer.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         self.profileImageViewContainer.layer.shadowRadius = 2.0
         self.profileImageViewContainer.layer.shadowOpacity = 1.0
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        self.originalHeight = self.profileViewHeightConstraint.constant
     }
 
     @IBAction func pageControlDidPage(_ sender: Any) {
@@ -79,14 +79,37 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
         let offSetPercentIntoSecondPage = scrollView.contentOffset.x / scrollView.bounds.width
             
             self.blurMask.alpha = CGFloat(offSetPercentIntoSecondPage * kBlurMaskLevel)
-        
+        UIView.animate(withDuration: 1) {
+            self.profileViewHeightConstraint.constant += 100
+        }
     }
     
     @IBAction func touchOnPageControl(_ sender: Any) {
         
         print("TOUCH ON PAGE")
+
+    }
+
+    func updateHeight(y:CGFloat) {
+        self.profileViewHeightConstraint.constant = self.originalHeight + y
+        print("CONSTANT = \(self.profileViewHeightConstraint.constant)")
+        
+        self.layoutIfNeeded()
     }
     
+    func restoreHeight() {
+        
+        self.profileViewHeightConstraint.constant = self.originalHeight
+        UIView.animate(withDuration: 1 ,animations: {
+            self.layoutIfNeeded()
+        })
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
     
     
     

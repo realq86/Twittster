@@ -77,6 +77,10 @@ class HamburgerViewController: UIViewController {
             if velocity.x > 0 {
                 contentViewLeadingConstraint.constant = contentViewPreviousMargin + translation.x
             }
+            
+            if velocity.y > 0 {
+                print("USER DRAGGING DOWN")
+            }
 
         }
         else if sender.state == .ended {

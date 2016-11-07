@@ -87,7 +87,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="343"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bA-qD-ZX6" id="aW6-Cy-Wsf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="342.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="342"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-UY-lla">
@@ -725,32 +725,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K9l-6s-ZZg">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileBannerHeaderView" rowHeight="100" id="c6h-ib-84d" userLabel="ProfileBannerHeaderView" customClass="ProfileBannerViewCell" customModule="Twittster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileBannerHeaderView" rowHeight="108" id="c6h-ib-84d" userLabel="ProfileBannerHeaderView" customClass="ProfileBannerViewCell" customModule="Twittster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6h-ib-84d" id="Q01-xa-SOC">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starGold" translatesAutoresizingMaskIntoConstraints="NO" id="XJN-et-39r">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
                                                 </imageView>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcY-jX-ZdD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-Lm-Bl9" userLabel="scrollContentView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="640" height="99.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="640" height="32"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdt-yf-zvG" userLabel="BlurMask">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="640" height="99.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="640" height="32"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XK3-VR-NAI" userLabel="Page2">
-                                                                    <rect key="frame" x="320" y="0.0" width="320" height="99.5"/>
+                                                                    <rect key="frame" x="320" y="0.0" width="320" height="32"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kip-OO-zxx" userLabel="ProfileDescription">
-                                                                            <rect key="frame" x="20" y="39" width="280" height="21"/>
+                                                                            <rect key="frame" x="20" y="5" width="280" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -765,13 +766,13 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIN-LQ-BU5" userLabel="Page1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REj-A1-zIB" userLabel="ImageViewContainer">
-                                                                            <rect key="frame" x="140" y="30" width="40" height="39.5"/>
+                                                                            <rect key="frame" x="153.5" y="9.5" width="13" height="12.5"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-Ca-4uN">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
+                                                                                    <rect key="frame" x="0.0" y="1" width="13" height="12.5"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="yd4-Ca-4uN" secondAttribute="height" multiplier="1:1" id="H3i-Hv-6wH"/>
                                                                                     </constraints>
@@ -801,6 +802,7 @@
                                                                 <constraint firstItem="XK3-VR-NAI" firstAttribute="top" secondItem="cWc-Lm-Bl9" secondAttribute="top" id="Bwf-hb-uQH"/>
                                                                 <constraint firstAttribute="trailing" secondItem="XK3-VR-NAI" secondAttribute="trailing" id="K7Q-Id-RSt"/>
                                                                 <constraint firstItem="Bdt-yf-zvG" firstAttribute="top" secondItem="cWc-Lm-Bl9" secondAttribute="top" id="Lt3-JG-GGo"/>
+                                                                <constraint firstAttribute="height" constant="100" id="M5r-Yl-IWM"/>
                                                                 <constraint firstAttribute="bottom" secondItem="VIN-LQ-BU5" secondAttribute="bottom" id="YmE-4o-lev"/>
                                                                 <constraint firstItem="VIN-LQ-BU5" firstAttribute="leading" secondItem="cWc-Lm-Bl9" secondAttribute="leading" id="bkY-5R-GpR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="XK3-VR-NAI" secondAttribute="bottom" id="cbu-5M-EHC"/>
@@ -823,7 +825,7 @@
                                                     </connections>
                                                 </scrollView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="HzA-KS-ycW">
-                                                    <rect key="frame" x="149" y="52.5" width="23" height="37"/>
+                                                    <rect key="frame" x="149" y="-15" width="23" height="37"/>
                                                     <color key="pageIndicatorTintColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="currentPageIndicatorTintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
@@ -855,15 +857,16 @@
                                             <outlet property="profileDescription" destination="kip-OO-zxx" id="gcF-9a-8E5"/>
                                             <outlet property="profileImageView" destination="yd4-Ca-4uN" id="SfX-ga-SJw"/>
                                             <outlet property="profileImageViewContainer" destination="REj-A1-zIB" id="lh0-Un-of3"/>
+                                            <outlet property="profileViewHeightConstraint" destination="M5r-Yl-IWM" id="H85-Gt-BTO"/>
                                             <outlet property="scrollView" destination="kcY-jX-ZdD" id="Ong-mG-yMX"/>
                                             <outlet property="scrollViewContentView" destination="cWc-Lm-Bl9" id="8f2-TJ-Wmh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserStateCell" rowHeight="51" id="RJK-Aj-fhS" userLabel="UserStateCell" customClass="UserStateCell" customModule="Twittster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="320" height="51"/>
+                                        <rect key="frame" x="0.0" y="136" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJK-Aj-fhS" id="4fD-hF-loI">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-f8-26l">
@@ -980,10 +983,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MainTweetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTweetCell" rowHeight="315" id="2MM-im-dW2" customClass="MainTweetCell" customModule="Twittster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="179" width="320" height="315"/>
+                                        <rect key="frame" x="0.0" y="187" width="320" height="315"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2MM-im-dW2" id="zLn-cb-0qd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="314.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="314"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zwG-HP-f4j">
@@ -1142,9 +1145,13 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kIu-5G-Acm" appends="YES" id="jB0-m9-wRY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="K9l-6s-ZZg" firstAttribute="leading" secondItem="y7f-m8-8VY" secondAttribute="leading" id="5GW-tC-3Iz"/>
                             <constraint firstItem="K9l-6s-ZZg" firstAttribute="top" secondItem="ZuL-DS-Do7" secondAttribute="bottom" id="9sf-cP-Dlc"/>
@@ -1160,6 +1167,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dl-c9-x5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="kIu-5G-Acm">
+                    <connections>
+                        <action selector="didPan:" destination="d3S-dx-hX3" id="cPg-7C-QOQ"/>
+                        <outlet property="delegate" destination="d3S-dx-hX3" id="RMa-zY-mBH"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3451.875" y="613.73239436619724"/>
         </scene>
@@ -1425,7 +1438,7 @@
         <image name="starGrey" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9gT-yZ-KOF"/>
-        <segue reference="mwl-BW-xH4"/>
+        <segue reference="im3-HM-x5P"/>
+        <segue reference="HKH-Qa-iUz"/>
     </inferredMetricsTieBreakers>
 </document>

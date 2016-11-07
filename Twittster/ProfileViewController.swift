@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, MainTweetCellDelegate {
+class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, MainTweetCellDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    weak var profileHeaderCell:ProfileBannerViewCell!
     var tableViewDataBackArray = [Tweet]()
     
     var user:TwittsterUser!
@@ -133,13 +135,15 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTweetCell", for: indexPath) as! MainTweetCell
             cell.delegate = self
-            cell.tweet = self.tableViewDataBackArray[indexPath.row] as! Tweet
+            cell.tweet = self.tableViewDataBackArray[indexPath.row] 
             cell.tag = indexPath.row
 
             return cell
         }
     }
     
+    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0 {
@@ -147,6 +151,7 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
             
             profileViewHeader.user = self.user
             
+            self.profileHeaderCell = profileViewHeader
             return profileViewHeader
         }
         
@@ -155,15 +160,58 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == 0 {
-            return self.view.bounds.height * 0.35
-        }
-        return 0
+//        if section == 0 {
+//            
+//            if let resize = self.headerResize {
+//                return self.view.bounds.height * 0.35 * CGFloat(resize / 100)
+//            }
+//            
+//            return self.view.bounds.height * 0.35
+//        }
+//        return 0
+        return UITableViewAutomaticDimension
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    
+    
+    @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
+        
+        let location = sender.translation(in: view)
+//        let velocity = sender.velocity(in: view)
+        
+        if sender.state == .began {
+            print("USER BEGIN")
+
+        }
+        else if sender.state == .changed {
+            print("X is =  \(location.y)")
+            
+            self.profileHeaderCell.updateHeight(y: location.y)
+
+            UIView.setAnimationsEnabled(false)
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+            
+            print("USER PANNED")
+        }
+        else if sender.state == .ended {
+            print("USER PAN ENDED")
+
+            self.profileHeaderCell.restoreHeight()
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     // MARK: - MainTweet Cell Delegate
@@ -181,7 +229,6 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         //Only segue to another person's profile
         if user.idString != self.user.idString {
             print("Pushing to user = \(user.name)")
-//            self.performSegue(withIdentifier: "SegueToProfileViewController", sender: user)
             
             let anotherProfileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController")
             
