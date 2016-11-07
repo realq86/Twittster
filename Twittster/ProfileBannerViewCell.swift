@@ -52,7 +52,7 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
         // Initialization code
         
         self.blurMask.alpha = 0.0
-//        
+
         self.profileImageView.layer.cornerRadius = 10.0
         
         self.profileImageViewContainer.layer.cornerRadius = 10.0
@@ -94,12 +94,16 @@ class ProfileBannerViewCell: UITableViewCell, UIScrollViewDelegate {
         self.profileViewHeightConstraint.constant = self.originalHeight + y
         print("CONSTANT = \(self.profileViewHeightConstraint.constant)")
         
+        let newAlpha = y / 100.0
+        self.blurMask.alpha = newAlpha * kBlurMaskLevel
+        
         self.layoutIfNeeded()
     }
     
     func restoreHeight() {
         
         self.profileViewHeightConstraint.constant = self.originalHeight
+        self.blurMask.alpha = 0.0
         UIView.animate(withDuration: 1 ,animations: {
             self.layoutIfNeeded()
         })
