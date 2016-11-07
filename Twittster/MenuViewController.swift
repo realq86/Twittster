@@ -44,6 +44,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         mentionsNaviVC.setViewControllers([mentionsVC], animated: false)
         tableViewDataBackArray.append(mentionsNaviVC)
         
+        let profileNaviVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationControllerID") as! UINavigationController
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+        profileNaviVC.setViewControllers([profileVC], animated: false)
+        tableViewDataBackArray.append(profileNaviVC)
+        
         hamburgerVC.contentVC = mentionsNaviVC
     }
     
