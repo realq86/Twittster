@@ -75,12 +75,12 @@ class TwitterServer: NSObject {
                 self.getCredentials(
                     success: { (user:TwittsterUser) in
                         TwittsterUser.currentUser = user
+                        weakSelf?.loginSuccessHandler?()
                     },
                     failure: { (error:Error?) in
                         weakSelf?.loginFailureHandler?()
                 })
                 
-                weakSelf?.loginSuccessHandler?()
             
             }, failure: { (error:Error?) in
             
