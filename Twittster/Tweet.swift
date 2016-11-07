@@ -32,8 +32,8 @@ class Tweet: NSObject {
     
     var favoritCount:NSNumber!
     
-    var entities:TweetEntities?
-    
+//    var entities:TweetEntities?
+    var image:URL?
     
     init(withJson json:[String:Any]) {
         
@@ -76,6 +76,19 @@ class Tweet: NSObject {
         self.favorited = newJson["favorited"] as! Bool
         
         self.favoritCount = newJson["favorite_count"] as! NSNumber
+        
+//        let imageURL = responseDic.value(forKeyPath: "sizes.mobile_retina.url") as! String
+//        tweetJSON["entities"]["media"][0]["media_url_https"].string{
+//            mediaUrl = URL(string : mediaUrlString)
+        let nsDic = newJson as NSDictionary
+        let mediaArray = nsDic.value(forKeyPath: "entities.media") as! NSArray
+        let mediaURLString = mediaArray[0] as! String
+        if let imageURL = URL(string: mediaURLString) {
+            self.image = imageURL
+        }
+        
+        
+        
     }
     
 //    var hoursAgo:String? {
