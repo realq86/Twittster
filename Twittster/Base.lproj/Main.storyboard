@@ -786,7 +786,7 @@
                                                                             <rect key="frame" x="153.5" y="9.5" width="13" height="12.5"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yd4-Ca-4uN">
-                                                                                    <rect key="frame" x="0.0" y="0.5" width="13" height="12.5"/>
+                                                                                    <rect key="frame" x="0.0" y="1" width="13" height="12.5"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="yd4-Ca-4uN" secondAttribute="height" multiplier="1:1" id="H3i-Hv-6wH"/>
                                                                                     </constraints>
@@ -816,7 +816,7 @@
                                                                 <constraint firstItem="XK3-VR-NAI" firstAttribute="top" secondItem="cWc-Lm-Bl9" secondAttribute="top" id="Bwf-hb-uQH"/>
                                                                 <constraint firstAttribute="trailing" secondItem="XK3-VR-NAI" secondAttribute="trailing" id="K7Q-Id-RSt"/>
                                                                 <constraint firstItem="Bdt-yf-zvG" firstAttribute="top" secondItem="cWc-Lm-Bl9" secondAttribute="top" id="Lt3-JG-GGo"/>
-                                                                <constraint firstAttribute="height" constant="100" id="M5r-Yl-IWM"/>
+                                                                <constraint firstAttribute="height" constant="200" id="M5r-Yl-IWM"/>
                                                                 <constraint firstAttribute="bottom" secondItem="VIN-LQ-BU5" secondAttribute="bottom" id="YmE-4o-lev"/>
                                                                 <constraint firstItem="VIN-LQ-BU5" firstAttribute="leading" secondItem="cWc-Lm-Bl9" secondAttribute="leading" id="bkY-5R-GpR"/>
                                                                 <constraint firstAttribute="bottom" secondItem="XK3-VR-NAI" secondAttribute="bottom" id="cbu-5M-EHC"/>
@@ -1458,6 +1458,6 @@
         <image name="starGrey" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vnG-xQ-Ntp"/>
+        <segue reference="HKH-Qa-iUz"/>
     </inferredMetricsTieBreakers>
 </document>

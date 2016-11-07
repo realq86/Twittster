@@ -154,7 +154,7 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
         if section == 0 {
             let profileViewHeader = tableView.dequeueReusableCell(withIdentifier: "ProfileBannerHeaderView") as! ProfileBannerViewCell
-            
+            profileViewHeader.profileViewHeightConstraint.constant = 200
             profileViewHeader.user = self.user
             
             self.profileHeaderCell = profileViewHeader
