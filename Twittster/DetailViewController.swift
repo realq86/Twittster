@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
     
     
     //TweetContent Views in StackView index 2
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetLabel: ActiveLabel!
     @IBOutlet weak var tweetTime: UILabel!
     
     
