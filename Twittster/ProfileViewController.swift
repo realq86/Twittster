@@ -18,6 +18,12 @@ class ProfileViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     var user:TwittsterUser!
     
+    var userOption:TwittsterUser? {
+        didSet {
+            print("GOT User")
+        }
+    }
+    
     var profileBannerURL:URL?
     
     var tweetsArray = [Tweet]()

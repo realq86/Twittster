@@ -71,8 +71,6 @@ class Tweet: NSObject {
         
         self.retweetCount = newJson["retweet_count"] as! NSNumber
         
- 
-        
         self.favorited = newJson["favorited"] as! Bool
         
         self.favoritCount = newJson["favorite_count"] as! NSNumber

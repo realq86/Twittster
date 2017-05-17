@@ -200,7 +200,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let profileVC = segue.destination as! ProfileViewController
             profileVC.user = sender as! TwittsterUser
-            
+            profileVC.userOption = sender as? TwittsterUser
         }
      }
     
